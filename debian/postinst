@@ -9,17 +9,31 @@ case "$1" in
     configure)
         SERVICE_XPATH_NAME="btsync"
         SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+        OMV_BTSYNC_DEFAULT_CONF=/etc/default/btsync
+        OMV_BTSYNC_USER=btsync
 
         if ! omv_config_exists "${SERVICE_XPATH}"; then
             omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
             omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
-            omv_config_add_element "${SERVICE_XPATH}" "port" "0"
-            omv_config_add_element "${SERVICE_XPATH}" "storage_path" "/home/btsync/.sync"
+            omv_config_add_element "${SERVICE_XPATH}" "listening_port" "0"
             omv_config_add_element "${SERVICE_XPATH}" "use_upnp" "1"
             omv_config_add_element "${SERVICE_XPATH}" "download_limit" "0"
             omv_config_add_element "${SERVICE_XPATH}" "upload_limit" "0"
             omv_config_add_element "${SERVICE_XPATH}" "shared_folders"
         fi
+
+        if ! getent passwd ${OMV_BTSYNC_USER} >/dev/null 2>&1; then
+
+            # Generate password and add user
+            NPSWD=$(makepasswd --crypt-md5 --chars=10)
+            NPSWD_CRYPT=$(echo ${NPSWD} | awk '{ print $2 }')
+
+            useradd -d /home/${OMV_BTSYNC_USER} -c "OpenMediaVault BitTorrent Sync user" -m -p ${NPSWD_CRYPT} ${OMV_BTSYNC_USER}
+        fi
+
+        echo "AUTOSTART=\"openmediavault\""      >  ${OMV_BTSYNC_DEFAULT_CONF}
+        echo "DAEMON_UID=\"${OMV_BTSYNC_USER}\"" >> ${OMV_BTSYNC_DEFAULT_CONF}
+        echo "DAEMON_GID=\"${OMV_BTSYNC_USER}\"" >> ${OMV_BTSYNC_DEFAULT_CONF}
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

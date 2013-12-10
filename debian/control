@@ -7,5 +7,5 @@ Standards-Version: 3.9.3
 
 Package: openmediavault-btsync
 Architecture: all
-Depends: openmediavault (>= 0.5), openmediavault (<< 0.6), btsync, ${misc:Depends}
+Depends: openmediavault (>= 0.5), openmediavault (<< 0.6), btsync, makepasswd, ${misc:Depends}
 Description: BitTorrent Sync plugin for OpenMediaVault.
