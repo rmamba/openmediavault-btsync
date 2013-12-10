@@ -48,7 +48,7 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
                 fieldLabel : _("Shared folder"),
                 plugins    : [{
                     ptype : "fieldinfo",
-                    text  : _("The location needs to have at least read permissions for the user/group btsync")
+                    text  : _("The location needs to have read/write permissions for the user/group btsync")
                 }]
             }]
         },{

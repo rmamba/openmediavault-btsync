@@ -47,6 +47,11 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
         flex      : 1,
         sortable  : true,
         dataIndex : "secret"
+    },{
+        header    : _("Read-only secret"),
+        flex      : 1,
+        sortable  : true,
+        dataIndex : "ro_secret"
     }],
 
     initComponent : function() {
@@ -62,7 +67,8 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
                     fields       : [
                         { name : 'uuid' },
                         { name : 'dir' },
-                        { name : 'secret' }
+                        { name : 'secret' },
+                        { name : 'ro_secret' }
                     ]
                 }),
                 proxy : {

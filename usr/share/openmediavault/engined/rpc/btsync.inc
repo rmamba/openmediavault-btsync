@@ -267,10 +267,22 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
                 throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
                     $cmd, implode("\n", $output));
 
-            $sharedFolder['secret'] = $output;
+            $secret = reset($output);
+            $sharedFolder['secret'] = $secret;
+
+            // Generate read only secret
+            $cmd = sprintf("/usr/lib/btsync/btsync-daemon --get-ro-secret %s 2>&1",
+                $secret);
+
+            if (0 !== $this->exec($cmd, $output))
+                throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+                    $cmd, implode("\n", $output));
+
+            $sharedFolder['ro_secret'] = reset($output);
         } else {
             // Use old secret
-            $sharedFolder['secret'] = $oldConfig['secret'];
+            $sharedFolder['secret']    = $oldConfig['secret'];
+            $sharedFolder['ro_secret'] = $oldConfig['ro_secret'];
         }
 
         // Save configuration
