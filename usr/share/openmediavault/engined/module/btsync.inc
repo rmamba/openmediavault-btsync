@@ -25,6 +25,11 @@ require_once"openmediavault/initscript.inc";
 
 class OMVModuleBtsync extends OMVModuleServiceAbstract implements OMVINotifyListener {
 
+    private function getXPath()
+    {
+        return "//services/btsync";
+    }
+
 	/**
 	 * Get the module name.
 	 */
@@ -38,12 +43,33 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements OMVINotifyList
 	 */
 	public function applyConfig()
 	{
-	    $cmd = "sudo omv-mkconf btsync 2>&1";
+	    $cmd = "sudo omv-mkconf " . $this->getName() . " 2>&1";
 
         if (0 !== $this->exec($cmd, $output))
             throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
                 $cmd, implode("\n", $output));
 	}
+
+    public function stopService() {
+        $initd = new OMVSysVInitScript($this->getName(), false);
+        $initd->exec();
+    }
+
+    public function startService() {
+        global $xmlConfig;
+
+        $object = $xmlConfig->get($this->getXPath());
+
+        if (is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath());
+
+        if (!boolval($object['enable']))
+            return;
+
+        $initd = new OMVSysVInitScript($this->getName(), true);
+        $initd->exec();
+    }
 
 	/**
 	 * Bind listeners.
