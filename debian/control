@@ -1,0 +1,11 @@
+Source: openmediavault-btsync
+Section: net
+Priority: optional
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+
+Package: openmediavault-btsync
+Architecture: all
+Depends: openmediavault (>= 0.5), openmediavault (<< 0.6), btsync, ${misc:Depends}
+Description: BitTorrent Sync plugin for OpenMediaVault.

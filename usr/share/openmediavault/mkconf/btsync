@@ -1,0 +1,132 @@
+#!/bin/sh
+#
+# Copyright (C) 2013 OpenMediaVault Plugin Developers
+#
+# This file is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This file is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this file. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_BTSYNC_CONF=/etc/btsync.conf
+
+OMV_BTSYNC_PLUGIN_XPATH=//services/btsync
+OMV_BTSYNC_SHARED_FOLDERS_XPATH=${OMV_BTSYNC_PLUGIN_XPATH}/shared_folders
+OMV_BTSYNC_SHARED_FOLDER_XPATH=${OMV_BTSYNC_SHARED_FOLDERS_XPATH}/shared_folder
+
+listening_port=$(omv_config_get "${OMV_BTSYNC_PLUGIN_XPATH}/listening_port")
+use_upnp=$(omv_config_get "${OMV_BTSYNC_PLUGIN_XPATH}/use_upnp")
+download_limit=$(omv_config_get "${OMV_BTSYNC_PLUGIN_XPATH}/download_limit")
+upload_limit=$(omv_config_get "${OMV_BTSYNC_PLUGIN_XPATH}/upload_limit")
+
+if [ "${use_upnp}" -eq "1" ]; then
+    use_upnp=true
+else
+    use_upnp=false
+fi
+
+cat <<EOF > ${OMV_BTSYNC_CONF}
+{
+    "device_name": "$('hostname') BitTorrent Sync Server",
+    "listening_port": ${listening_port},
+    "storage_path": "/home/btsync/.sync",
+    "check_for_updates": false,
+    "use_upnp": ${use_upnp},
+    "download_limit": ${download_limit},
+    "upload_limit": ${upload_limit},
+    "shared_folders": [
+EOF
+
+# Add shared folders
+shared_folder_count=$(omv_config_get_count "${OMV_BTSYNC_SHARED_FOLDER_XPATH}")
+index=1
+while [ ${index} -lt ${shared_folder_count} -o ${index} -eq ${shared_folder_count} ]; do
+
+    CURRENT_SHARED_FOLDER_XPATH="${OMV_BTSYNC_SHARED_FOLDER_XPATH}[position()=${index}]"
+
+    # Secret
+    secret=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/secret")
+
+    # Dir
+    sharedfolderref=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/sharedfolderref")
+    dir=$(omv_get_sharedfolder_path "${sharedfolderref}")
+
+    # Set booleans
+    use_relay_server=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/use_relay_server")
+    if [ "${use_relay_server}" -eq "1" ]; then
+        use_relay_server=true
+    else
+        use_relay_server=false
+    fi
+
+    use_tracker=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/use_tracker")
+    if [ "${use_tracker}" -eq "1" ]; then
+        use_tracker=true
+    else
+        use_tracker=false
+    fi
+
+    use_dht=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/use_dht")
+    if [ "${use_dht}" -eq "1" ]; then
+        use_dht=true
+    else
+        use_dht=false
+    fi
+
+    search_lan=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/search_lan")
+    if [ "${search_lan}" -eq "1" ]; then
+        search_lan=true
+    else
+        search_lan=false
+    fi
+
+    use_sync_trash=$(omv_config_get "${CURRENT_SHARED_FOLDER_XPATH}/use_sync_trash")
+    if [ "${use_sync_trash}" -eq "1" ]; then
+        use_sync_trash=true
+    else
+        use_sync_trash=false
+    fi
+
+    # Write config
+cat <<EOF >> ${OMV_BTSYNC_CONF}
+        {
+            "secret": "${secret}",
+            "dir": "${dir}",
+            "use_relay_server": ${use_relay_server},
+            "use_tracker": ${use_tracker},
+            "use_dht": ${use_dht},
+            "search_lan": ${search_lan},
+            "use_sync_trash": ${use_sync_trash}
+EOF
+
+    if [ ${index} -eq ${shared_folder_count} ]; then
+        end_tag="}"
+    else
+        end_tag="},"
+    fi
+
+cat <<EOF >> ${OMV_BTSYNC_CONF}
+        ${end_tag}
+EOF
+
+    index=$(( ${index} + 1 ))
+done
+
+cat <<EOF >> ${OMV_BTSYNC_CONF}
+    ]
+}
+EOF
+
+exit 0

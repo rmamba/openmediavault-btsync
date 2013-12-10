@@ -1,0 +1,36 @@
+#!/bin/sh
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+    configure)
+        SERVICE_XPATH_NAME="btsync"
+        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+
+        if ! omv_config_exists "${SERVICE_XPATH}"; then
+            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
+            omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "port" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "storage_path" "/home/btsync/.sync"
+            omv_config_add_element "${SERVICE_XPATH}" "use_upnp" "1"
+            omv_config_add_element "${SERVICE_XPATH}" "download_limit" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "upload_limit" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "shared_folders"
+        fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
