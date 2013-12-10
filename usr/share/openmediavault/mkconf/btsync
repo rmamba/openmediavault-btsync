@@ -20,7 +20,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_BTSYNC_CONF=/etc/btsync.conf
+OMV_BTSYNC_CONF=/etc/btsync/openmediavault.conf
 
 OMV_BTSYNC_PLUGIN_XPATH=//services/btsync
 OMV_BTSYNC_SHARED_FOLDERS_XPATH=${OMV_BTSYNC_PLUGIN_XPATH}/shared_folders
