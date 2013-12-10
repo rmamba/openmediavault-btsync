@@ -209,6 +209,17 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $sharedFolder['search_lan']       = boolval($sharedFolder['search_lan']);
         $sharedFolder['use_sync_trash']   = boolval($sharedFolder['use_sync_trash']);
 
+        // Get full path for presentation
+        $xPath = sprintf("//system/shares/sharedfolder[uuid='%s']", $sharedFolder['sharedfolderref']);
+        $dir = $xmlConfig->get($xPath);
+
+        $xPath = sprintf("//system/fstab/mntent[uuid='%s']", $dir['mntentref']);
+        $mountPoint = $xmlConfig->get($xPath);
+
+        $sharedFolder['dir'] = sprintf("%s/%s",
+            $mountPoint['dir'],
+            $dir['reldirpath']);
+
         return $sharedFolder;
     }
 

@@ -38,6 +38,11 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
         hidden    : true,
         dataIndex : "uuid"
     },{
+        header    : _("Directory"),
+        flex      : 1,
+        sortable  : true,
+        dataIndex : "dir"
+    },{
         header    : _("Secret"),
         flex      : 1,
         sortable  : true,
@@ -56,6 +61,7 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
                     totalPoperty : 'total',
                     fields       : [
                         { name : 'uuid' },
+                        { name : 'dir' },
                         { name : 'secret' }
                     ]
                 }),
