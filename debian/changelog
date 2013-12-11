@@ -1,3 +1,9 @@
+openmediavault-btsync (0.5.2) stable; urgency=low
+
+  * Add service status
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 11 Dec 2013 04:23:16 +0200
+
 openmediavault-btsync (0.5.1) stable; urgency=low
 
   * Added QR generator

@@ -23,7 +23,8 @@ require_once"openmediavault/error.inc";
 require_once"openmediavault/util.inc";
 require_once"openmediavault/initscript.inc";
 
-class OMVModuleBtsync extends OMVModuleServiceAbstract implements OMVINotifyListener {
+class OMVModuleBtsync extends OMVModuleServiceAbstract
+    implements OMVINotifyListener, OMVIModuleServiceStatus {
 
     private function getXPath()
     {
@@ -69,6 +70,26 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements OMVINotifyList
 
         $initd = new OMVSysVInitScript($this->getName(), true);
         $initd->exec();
+    }
+
+    public function getStatus() {
+        global $xmlConfig;
+
+        $object = $xmlConfig->get($this->getXPath());
+
+        if (is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath());
+
+        $cmd = "/etc/init.d/btsync status";
+        $this->exec($cmd, $output);
+
+        return array(
+            "name"    => $this->getName(),
+            "title"   => gettext("btsync"),
+            "enabled" => boolval($object['enable']),
+            "running" => (strpos($output[0], 'is running') > 0)
+        );
     }
 
 	/**
