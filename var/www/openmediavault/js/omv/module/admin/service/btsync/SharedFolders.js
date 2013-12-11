@@ -84,6 +84,9 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
 
         me.doReload();
 
+        var selModel = me.getSelectionModel();
+        selModel.on("selectionchange", me.updateShowSecretButtonState, me);
+
         me.callParent(arguments);
     },
 
@@ -92,13 +95,14 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
         var items = me.callParent(arguments);
 
         Ext.Array.push(items, [{
-            id      : me.getId() + "-secret",
-            xtype   : "button",
-            text    : _("Show secret/QR code"),
-            icon    : "images/book.png",
-            iconCls : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler : Ext.Function.bind(me.onShowSecretButton, me, [ me ]),
-            scope   : me
+            id       : me.getId() + "-secret",
+            xtype    : "button",
+            text     : _("Show secret/QR code"),
+            icon     : "images/book.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onShowSecretButton, me, [ me ]),
+            scope    : me,
+            disabled : true
         }]);
 
         return items;
@@ -162,6 +166,17 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
             secret    : record.get('secret'),
             ro_secret : record.get('ro_secret')
         }).show();
+    },
+
+    updateShowSecretButtonState : function(model, records) {
+        var me = this;
+        var showSecretButton= me.queryById(me.getId() + "-secret");
+
+        if(records.length === 1) {
+            showSecretButton.enable();
+        } else {
+            showSecretButton.disable();
+        }
     }
 
 });
