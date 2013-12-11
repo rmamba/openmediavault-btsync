@@ -1,3 +1,10 @@
+openmediavault-btsync (0.5.3) stable; urgency=low
+
+  * Fix service running as root instead of as btsync
+  * Set fixed width and height on QR code so it is always visible
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 11 Dec 2013 11:28:37 +0100
+
 openmediavault-btsync (0.5.2) stable; urgency=low
 
   * Add service status

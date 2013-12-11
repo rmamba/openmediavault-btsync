@@ -32,7 +32,7 @@ Ext.define("OMV.module.admin.service.btsync.window.SecretTab", {
                 xtype : "textfield",
                 value : this.qrDataText
             },{
-                html   : "<img style='width:100%;' src='" + qrImage + "' />",
+                html   : "<img height='376' width='376' style='width:100%;' src='" + qrImage + "' />",
                 margin : "0 0 10 0"
             }]
         });

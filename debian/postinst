@@ -32,8 +32,6 @@ case "$1" in
         fi
 
         echo "AUTOSTART=\"openmediavault\""      >  ${OMV_BTSYNC_DEFAULT_CONF}
-        echo "DAEMON_UID=\"${OMV_BTSYNC_USER}\"" >> ${OMV_BTSYNC_DEFAULT_CONF}
-        echo "DAEMON_GID=\"${OMV_BTSYNC_USER}\"" >> ${OMV_BTSYNC_DEFAULT_CONF}
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
