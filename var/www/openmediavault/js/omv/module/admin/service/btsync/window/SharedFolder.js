@@ -38,6 +38,7 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
 
     getFormItems : function() {
         var me = this;
+        var isNew = !me.uuid;
 
         return [{
             xtype : "fieldset",
@@ -49,6 +50,17 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
                 plugins    : [{
                     ptype : "fieldinfo",
                     text  : _("The location needs to have read/write permissions for the user/group btsync")
+                }]
+            },{
+                xtype      : "textfield",
+                name       : "existing_secret",
+                fieldLabel : _("Existing secret"),
+                allowBlank : true,
+                disabled   : !isNew,
+                hidden     : !isNew,
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("Fill in a existing secret in this field if you want to sync an existing shared folder with this server.")
                 }]
             }]
         },{

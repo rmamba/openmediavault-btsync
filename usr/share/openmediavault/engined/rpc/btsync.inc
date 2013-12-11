@@ -242,7 +242,9 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
                 "use_tracker"      : { "type" : "boolean" },
                 "use_dht"          : { "type" : "boolean" },
                 "search_lan"       : { "type" : "boolean" },
-                "use_sync_trash"   : { "type" : "boolean" }
+                "use_sync_trash"   : { "type" : "boolean" },
+
+                "existing_secret"  : { "type" : "string", "optional" : true }
             }
         }');
 
@@ -256,34 +258,44 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             'use_sync_trash'   => boolval($params['use_sync_trash']),
         );
 
-        // Get old config
-        $oldConfig = $xmlConfig->get($this->getSharedFolderXPathByUuid($params['uuid']));
 
-        if (is_null($oldConfig)) {
-            // Generate secret if new
-            $cmd = "/usr/lib/btsync/btsync-daemon --generate-secret 2>&1";
 
-            if (0 !== $this->exec($cmd, $output))
-                throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-                    $cmd, implode("\n", $output));
+        if (!empty($params['existing_secret'])) {
+            try {
+                $readOnlySecret = $this->generateSecret(true, $params['existing_secret']);
 
-            $secret = reset($output);
-            $sharedFolder['secret'] = $secret;
-
-            // Generate read only secret
-            $cmd = sprintf("/usr/lib/btsync/btsync-daemon --get-ro-secret %s 2>&1",
-                $secret);
-
-            if (0 !== $this->exec($cmd, $output))
-                throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-                    $cmd, implode("\n", $output));
-
-            $sharedFolder['ro_secret'] = reset($output);
+                // Set secrets
+                $sharedFolder['secret']    = $params['existing_secret'];
+                $sharedFolder['ro_secret'] = $readOnlySecret;
+            } catch (\Exception $e) {
+                // The existing secret is a read only key
+                // Set secrets
+                $sharedFolder['secret']    = null;
+                $sharedFolder['ro_secret'] = $params['existing_secret'];
+            }
         } else {
-            // Use old secret
-            $sharedFolder['secret']    = $oldConfig['secret'];
-            $sharedFolder['ro_secret'] = $oldConfig['ro_secret'];
+            // Get old config
+            $oldConfig = $xmlConfig->get($this->getSharedFolderXPathByUuid($params['uuid']));
+
+            if (is_null($oldConfig)) {
+                try {
+                    $secret = $this->generateSecret();
+                    $readOnlySecret = $this->generateSecret(true, $secret);
+
+                    // Set secrets
+                    $sharedFolder['secret']    = $secret;
+                    $sharedFolder['ro_secret'] = $readOnlySecret;
+                } catch (\Exception $e) {
+                    throw new \Exception($e->getMessage());
+                }
+            } else {
+                // Use old secret
+                $sharedFolder['secret']    = $oldConfig['secret'];
+                $sharedFolder['ro_secret'] = $oldConfig['ro_secret'];
+            }
         }
+
+
 
         // Save configuration
         $success = false;
@@ -336,6 +348,27 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $dispatcher = &OMVNotifyDispatcher::getInstance();
         $dispatcher->notify(OMV_NOTIFY_DELETE,
             "org.openmediavault.services.btsync", $sharedFolder);
+    }
+
+    private function generateSecret($readOnly = false, $secret = null)
+    {
+        if ($readOnly && is_null($secret))
+            throw new \Exception("No input secret provided when generating read-only key");
+
+        $cmd = null;
+        $cmdFormat = "/usr/lib/btsync/btsync-daemon %s 2>&1";
+
+        if ($readOnly) {
+            $arg = sprintf("--get-ro-secret %s", $secret);
+            $cmd = sprintf($cmdFormat, $arg);
+        } else {
+            $cmd = sprintf($cmdFormat, "--generate-secret");
+        }
+
+        if (0 !== $this->exec($cmd, $output))
+            throw new \Exception("Secret generation failed with: " . reset($output));
+
+        return reset($output);
     }
 }
 

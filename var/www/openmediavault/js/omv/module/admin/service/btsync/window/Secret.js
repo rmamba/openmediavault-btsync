@@ -83,15 +83,22 @@ Ext.define("OMV.module.admin.service.btsync.window.Secret", {
     hideCloseButton  : false,
 
     getTabItems: function() {
-        return [
-            Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
+        var me = this;
+
+        var itemArray = new Array();
+
+        if (me.secret) {
+            itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
                 title      : _("Full access"),
                 qrDataText : this.secret
-            }),
-            Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
-                title      : _("Read-only"),
-                qrDataText : this.ro_secret
-            }),
-        ];
+            }));
+        }
+
+        itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
+            title      : _("Read-only"),
+            qrDataText : this.ro_secret
+        }));
+
+        return itemArray;
     }
 });
