@@ -76,7 +76,11 @@ Ext.define("OMV.module.admin.service.btsync.window.Secret", {
         "OMV.module.admin.service.btsync.window.SecretTab",
     ],
 
-    title : _("Secret / QR"),
+    title            : _("Secret / QR"),
+    hideOkButton     : true,
+    hideResetButton  : true,
+    hideCancelButton : true,
+    hideCloseButton  : false,
 
     getTabItems: function() {
         return [
