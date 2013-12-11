@@ -21,6 +21,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/module/admin/service/btsync/window/SharedFolder.js")
+// require("js/omv/module/admin/service/btsync/window/Secret.js")
 
 Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
     extend   : "OMV.workspace.grid.Panel",
@@ -86,6 +87,23 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
         me.callParent(arguments);
     },
 
+    getTopToolbarItems : function() {
+        var me = this;
+        var items = me.callParent(arguments);
+
+        Ext.Array.push(items, [{
+            id      : me.getId() + "-secret",
+            xtype   : "button",
+            text    : _("Show secret/QR code"),
+            icon    : "images/book.png",
+            iconCls : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler : Ext.Function.bind(me.onShowSecretButton, me, [ me ]),
+            scope   : me
+        }]);
+
+        return items;
+    },
+
     onAddButton : function() {
         var me = this;
 
@@ -131,6 +149,19 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
                 }
             }
         });
+    },
+
+    onShowSecretButton : function() {
+        var me = this;
+        var record = me.getSelected();
+
+        if (!record)
+            return;
+
+        Ext.create("OMV.module.admin.service.btsync.window.Secret", {
+            secret    : record.get('secret'),
+            ro_secret : record.get('ro_secret')
+        }).show();
     }
 
 });
