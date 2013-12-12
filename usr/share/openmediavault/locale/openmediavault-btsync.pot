@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-btsync\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-12 10:45-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "0 - no limit"
+msgstr ""
+
+msgid "0 - randomize port"
+msgstr ""
+
+msgid "Add shared folder"
+msgstr ""
+
+msgid "BitTorrent Sync"
+msgstr ""
+
+msgid "Directory"
+msgstr ""
+
+msgid "Download limit"
+msgstr ""
+
+msgid "Edit shared folder"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Existing secret"
+msgstr ""
+
+msgid "Fill in a existing secret in this field if you want to sync an existing shared folder with this server."
+msgstr ""
+
+msgid "Full access"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Listening port"
+msgstr ""
+
+msgid "Read-only"
+msgstr ""
+
+msgid "Read-only secret"
+msgstr ""
+
+msgid "Search LAN"
+msgstr ""
+
+msgid "Secret"
+msgstr ""
+
+msgid "Secret / QR"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Shared folders"
+msgstr ""
+
+msgid "Show secret/QR code"
+msgstr ""
+
+msgid "The location needs to have read/write permissions for the user/group btsync"
+msgstr ""
+
+msgid "UUID"
+msgstr ""
+
+msgid "Upload limit"
+msgstr ""
+
+msgid "Use DHT"
+msgstr ""
+
+msgid "Use UPnP"
+msgstr ""
+
+msgid "Use relay server"
+msgstr ""
+
+msgid "Use sync trash"
+msgstr ""
+
+msgid "Use tracker"
+msgstr ""
+
+msgid "btsync"
+msgstr ""
