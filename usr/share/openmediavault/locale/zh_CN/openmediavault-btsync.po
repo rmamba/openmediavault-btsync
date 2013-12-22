@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-22 11:43-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-12-16 06:20+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-btsync/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "0 - no limit"
 msgstr ""
@@ -24,40 +25,42 @@ msgid "0 - randomize port"
 msgstr ""
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "添加共享文件夹"
 
 msgid "BitTorrent Sync"
-msgstr ""
+msgstr "BitTorrent 同步"
 
 msgid "Directory"
-msgstr ""
+msgstr "目录"
 
 msgid "Download limit"
-msgstr ""
+msgstr "下载限制"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "编辑共享文件夹"
 
 msgid "Enable"
-msgstr ""
+msgstr "启动"
 
 msgid "Existing secret"
 msgstr ""
 
-msgid "Fill in a existing secret in this field if you want to sync an existing shared folder with this server."
+msgid ""
+"Fill in a existing secret in this field if you want to sync an existing "
+"shared folder with this server."
 msgstr ""
 
 msgid "Full access"
 msgstr ""
 
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 msgid "Listening port"
-msgstr ""
+msgstr "监听端口"
 
 msgid "Read-only"
-msgstr ""
+msgstr "只读"
 
 msgid "Read-only secret"
 msgstr ""
@@ -72,10 +75,10 @@ msgid "Secret / QR"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共享文件夹"
 
 msgid "Shared folders"
 msgstr ""
@@ -83,20 +86,21 @@ msgstr ""
 msgid "Show secret/QR code"
 msgstr ""
 
-msgid "The location needs to have read/write permissions for the user/group btsync"
+msgid ""
+"The location needs to have read/write permissions for the user/group btsync"
 msgstr ""
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Upload limit"
-msgstr ""
+msgstr "上传限制"
 
 msgid "Use DHT"
-msgstr ""
+msgstr "启用DHT"
 
 msgid "Use UPnP"
-msgstr ""
+msgstr "启用UPnP"
 
 msgid "Use relay server"
 msgstr ""
@@ -108,4 +112,4 @@ msgid "Use tracker"
 msgstr ""
 
 msgid "btsync"
-msgstr ""
+msgstr "btsync"
