@@ -3,44 +3,43 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-22 11:43-0600\n"
-"PO-Revision-Date: 2013-12-23 13:19+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-btsync/language/pl_PL/)\n"
+"PO-Revision-Date: 2013-12-23 14:25+0000\n"
+"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-btsync/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl_PL\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr "0 - brak limitów"
+msgstr ""
 
 msgid "0 - randomize port"
-msgstr "0- losowy port"
+msgstr ""
 
 msgid "Add shared folder"
-msgstr "Dodaj katalog"
+msgstr ""
 
 msgid "BitTorrent Sync"
-msgstr "BitTorrent Sync"
+msgstr ""
 
 msgid "Directory"
-msgstr "Katalog"
+msgstr ""
 
 msgid "Download limit"
-msgstr "Limit pobierania"
+msgstr ""
 
 msgid "Edit shared folder"
-msgstr "Edytuj udostępniony katalog"
+msgstr ""
 
 msgid "Enable"
-msgstr "Włącz"
+msgstr ""
 
 msgid "Existing secret"
 msgstr ""
@@ -51,22 +50,22 @@ msgid ""
 msgstr ""
 
 msgid "Full access"
-msgstr "Pełny dostęp"
+msgstr ""
 
 msgid "General"
-msgstr "Główne"
+msgstr ""
 
 msgid "Listening port"
-msgstr "Port nasłuchu"
+msgstr ""
 
 msgid "Read-only"
-msgstr "Tylko do odczytu"
+msgstr ""
 
 msgid "Read-only secret"
 msgstr ""
 
 msgid "Search LAN"
-msgstr "Szukaj LAN"
+msgstr ""
 
 msgid "Secret"
 msgstr ""
@@ -75,13 +74,13 @@ msgid "Secret / QR"
 msgstr ""
 
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr ""
 
 msgid "Shared folder"
-msgstr "Udostępniony katalog"
+msgstr ""
 
 msgid "Shared folders"
-msgstr "Udostępnione katalogi"
+msgstr ""
 
 msgid "Show secret/QR code"
 msgstr ""
@@ -91,16 +90,16 @@ msgid ""
 msgstr ""
 
 msgid "UUID"
-msgstr "UUID"
+msgstr ""
 
 msgid "Upload limit"
-msgstr "Limit wysyłania"
+msgstr ""
 
 msgid "Use DHT"
-msgstr "Użyj DHT"
+msgstr ""
 
 msgid "Use UPnP"
-msgstr "Użyj UPnP"
+msgstr ""
 
 msgid "Use relay server"
 msgstr ""
@@ -109,7 +108,7 @@ msgid "Use sync trash"
 msgstr ""
 
 msgid "Use tracker"
-msgstr "Użyj trakera"
+msgstr ""
 
 msgid "btsync"
-msgstr "btsync"
+msgstr ""
