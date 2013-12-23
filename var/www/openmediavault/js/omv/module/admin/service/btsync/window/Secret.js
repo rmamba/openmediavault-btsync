@@ -16,7 +16,9 @@
  */
 
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/workspace/window/Form.js")
+// require("js/omv/form/Panel.js")
+// require("js/omv/workspace/window/Tab.js")
+// require("js/omv/module/admin/service/btsync/libs/jsqr-0.2-min.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.SecretTab", {
     extend : "OMV.form.Panel",
@@ -25,12 +27,12 @@ Ext.define("OMV.module.admin.service.btsync.window.SecretTab", {
 
     initComponent : function() {
         var me = this;
-        var qrImage = me.generateQrCodeImage("btsync://" + this.qrDataText);
+        var qrImage = me.generateQrCodeImage("btsync://" + me.qrDataText);
 
         Ext.apply(me, {
             items: [{
                 xtype : "textfield",
-                value : this.qrDataText
+                value : me.qrDataText
             },{
                 html   : "<img height='376' width='376' style='width:100%;' src='" + qrImage + "' />",
                 margin : "0 0 10 0"
@@ -90,13 +92,13 @@ Ext.define("OMV.module.admin.service.btsync.window.Secret", {
         if (me.secret) {
             itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
                 title      : _("Full access"),
-                qrDataText : this.secret
+                qrDataText : me.secret
             }));
         }
 
         itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
             title      : _("Read-only"),
-            qrDataText : this.ro_secret
+            qrDataText : me.ro_secret
         }));
 
         return itemArray;

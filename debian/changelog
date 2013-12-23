@@ -1,3 +1,10 @@
+openmediavault-btsync (0.5.6) stable; urgency=high
+
+  * Fix requires in Javascript files
+  * Activate update-locale trigger
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 23 Dec 2013 16:04:54 +0100
+
 openmediavault-btsync (0.5.5) stable; urgency=low
 
   * Add locales

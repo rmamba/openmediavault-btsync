@@ -29,7 +29,8 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
         "OMV.data.Store",
         "OMV.data.Model",
         "OMV.data.proxy.Rpc",
-        "OMV.module.admin.service.btsync.window.SharedFolder"
+        "OMV.module.admin.service.btsync.window.SharedFolder",
+        "OMV.module.admin.service.btsync.window.Secret"
     ],
 
     hidePagingToolbar : false,

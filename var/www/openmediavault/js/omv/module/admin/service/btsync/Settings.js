@@ -26,8 +26,6 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
     rpcSetMethod : "setSettings",
 
     getFormItems : function() {
-        var me = this;
-
         return [{
             xtype    : "fieldset",
             title    : "General settings",
