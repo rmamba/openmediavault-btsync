@@ -66,7 +66,7 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig()
 	{
-	    $cmd = sprintf("sudo omv-mkconf %s 2>&1". $this->getName());
+	    $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
 
         if (0 !== $this->exec($cmd, $output))
             throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
