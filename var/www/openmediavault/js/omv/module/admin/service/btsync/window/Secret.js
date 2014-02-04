@@ -59,10 +59,10 @@ Ext.define("OMV.module.admin.service.btsync.window.SecretTab", {
         matrix.scale = 4;
         matrix.margin = 2;
 
-        var canvas = document.createElement('canvas');
-        canvas.setAttribute('width', matrix.pixelWidth);
-        canvas.setAttribute('height', matrix.pixelWidth);
-        canvas.getContext('2d').fillStyle = 'rgb(0,0,0)';
+        var canvas = document.createElement("canvas");
+        canvas.setAttribute("width", matrix.pixelWidth);
+        canvas.setAttribute("height", matrix.pixelWidth);
+        canvas.getContext("2d").fillStyle = "rgb(0,0,0)";
         matrix.draw(canvas, 0, 0);
 
         // Convert canvas to image data URL

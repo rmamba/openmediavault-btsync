@@ -69,13 +69,13 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
             layout   : "column",
             defaults : {
                 columnWidth : 0.5,
-                layout      : 'form',
+                layout      : "form",
                 border      : false,
             },
             items : [{
                 defaults : {
                     hideLabel      : true,
-                    labelSeparator : ''
+                    labelSeparator : ""
                 },
                 items : [{
                     xtype      : "checkbox",
@@ -96,7 +96,7 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
             },{
                 defaults : {
                     hideLabel      : true,
-                    labelSeparator : ''
+                    labelSeparator : ""
                 },
                 items : [{
                     xtype      : "checkbox",

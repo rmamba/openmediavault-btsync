@@ -23,7 +23,7 @@
 // require("js/omv/module/admin/service/btsync/window/SharedFolder.js")
 // require("js/omv/module/admin/service/btsync/window/Secret.js")
 
-Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
+Ext.define("OMV.module.admin.service.btsync.SharedFolders", {
     extend   : "OMV.workspace.grid.Panel",
     requires : [
         "OMV.data.Store",
@@ -64,17 +64,17 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
                 autoload   : true,
                 remoteSort : false,
                 model      : OMV.data.Model.createImplicit({
-                    idProperty   : 'uuid',
-                    totalPoperty : 'total',
+                    idProperty   : "uuid",
+                    totalPoperty : "total",
                     fields       : [
-                        { name : 'uuid' },
-                        { name : 'dir' },
-                        { name : 'secret' },
-                        { name : 'ro_secret' }
+                        { name : "uuid" },
+                        { name : "dir" },
+                        { name : "secret" },
+                        { name : "ro_secret" }
                     ]
                 }),
                 proxy : {
-                    type    : 'rpc',
+                    type    : "rpc",
                     rpcData : {
                         "service" : "Btsync",
                         "method"  : "getList"
@@ -130,7 +130,7 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
         Ext.create("OMV.module.admin.service.btsync.window.SharedFolder", {
             rpcGetMethod : "get",
             title        : _("Edit shared folder"),
-            uuid         : record.get('uuid'),
+            uuid         : record.get("uuid"),
             listeners    : {
                 scope  : me,
                 submit : function() {
@@ -164,8 +164,8 @@ Ext.define('OMV.module.admin.service.btsync.SharedFolders', {
             return;
 
         Ext.create("OMV.module.admin.service.btsync.window.Secret", {
-            secret    : record.get('secret'),
-            ro_secret : record.get('ro_secret')
+            secret    : record.get("secret"),
+            ro_secret : record.get("ro_secret")
         }).show();
     },
 

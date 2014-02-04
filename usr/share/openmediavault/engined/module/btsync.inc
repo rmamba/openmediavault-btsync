@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once"openmediavault/module.inc";
-require_once"openmediavault/config.inc";
-require_once"openmediavault/error.inc";
-require_once"openmediavault/util.inc";
-require_once"openmediavault/initscript.inc";
+require_once "openmediavault/module.inc";
+require_once "openmediavault/config.inc";
+require_once "openmediavault/error.inc";
+require_once "openmediavault/util.inc";
+require_once "openmediavault/initscript.inc";
 
 class OMVModuleBtsync extends OMVModuleServiceAbstract
     implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -39,39 +39,9 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract
 		return "btsync";
 	}
 
-	/**
-	 * Create and update the configuration
-	 */
-	public function applyConfig()
-	{
-	    $cmd = "sudo omv-mkconf " . $this->getName() . " 2>&1";
-
-        if (0 !== $this->exec($cmd, $output))
-            throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-                $cmd, implode("\n", $output));
-	}
-
-    public function stopService() {
-        $initd = new OMVSysVInitScript($this->getName(), false);
-        $initd->exec();
-    }
-
-    public function startService() {
-        global $xmlConfig;
-
-        $object = $xmlConfig->get($this->getXPath());
-
-        if (is_null($object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath());
-
-        if (!boolval($object['enable']))
-            return;
-
-        $initd = new OMVSysVInitScript($this->getName(), true);
-        $initd->exec();
-    }
-
+    /**
+     * Get the status of the service
+     */
     public function getStatus() {
         global $xmlConfig;
 
@@ -81,15 +51,53 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $this->getXPath());
 
-        $cmd = "/etc/init.d/btsync status";
-        $this->exec($cmd, $output);
+        $initd = new OMVSysVInitScript($this->getName());
 
         return array(
             "name"    => $this->getName(),
-            "title"   => gettext("btsync"),
-            "enabled" => boolval($object['enable']),
-            "running" => (strpos($output[0], 'is running') > 0)
+            "title"   => gettext("Nginx"),
+            "enabled" => boolval($object["enable"]),
+            "running" => $initd->status() == 0
         );
+    }
+
+	/**
+	 * Create and update the configuration
+	 */
+	public function applyConfig()
+	{
+	    $cmd = sprintf("sudo omv-mkconf %s 2>&1". $this->getName());
+
+        if (0 !== $this->exec($cmd, $output))
+            throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+                $cmd, implode("\n", $output));
+	}
+
+    /**
+     * Start the service
+     */
+    public function startService() {
+        global $xmlConfig;
+
+        $object = $xmlConfig->get($this->getXPath());
+
+        if (is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath());
+
+        if (!boolval($object["enable"]))
+            return;
+
+        $initd = new OMVSysVInitScript($this->getName(), true);
+        $initd->exec();
+    }
+
+    /**
+     * Stop the service
+     */
+    public function stopService() {
+        $initd = new OMVSysVInitScript($this->getName());
+        $initd->exec();
     }
 
 	/**
