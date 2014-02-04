@@ -55,7 +55,7 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract
 
         return array(
             "name"    => $this->getName(),
-            "title"   => gettext("Nginx"),
+            "title"   => gettext("Btsync"),
             "enabled" => boolval($object["enable"]),
             "running" => $initd->status() == 0
         );
