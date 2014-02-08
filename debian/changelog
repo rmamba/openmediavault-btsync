@@ -1,3 +1,9 @@
+openmediavault-btsync (1.0.0) stable; urgency=medium
+
+  * OMV 1.0 compatibility 
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 08 Feb 2014 02:23:56 +0100
+
 openmediavault-btsync (0.5.6) stable; urgency=high
 
   * Fix requires in Javascript files
