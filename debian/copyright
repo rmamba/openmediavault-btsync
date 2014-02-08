@@ -4,3 +4,7 @@ Upstream-Name: openmediavault-btsync
 Files: *
 Copyright: 2013-2014 OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 License: GPL-3+
+
+Files: var/www/openmediavault/js/omv/module/admin/service/btsync/libs/jsqr-0.2-min.js
+Copyright 2011, Jens Duttke
+License: MIT or GPL-2
