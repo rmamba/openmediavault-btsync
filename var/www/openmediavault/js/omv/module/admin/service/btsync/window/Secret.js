@@ -87,7 +87,7 @@ Ext.define("OMV.module.admin.service.btsync.window.Secret", {
     getTabItems: function() {
         var me = this;
 
-        var itemArray = new Array();
+        var itemArray = [];
 
         if (me.secret) {
             itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.SecretTab", {
