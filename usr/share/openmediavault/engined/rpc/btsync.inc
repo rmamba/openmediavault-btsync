@@ -209,6 +209,16 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $sharedFolder["search_lan"]       = boolval($sharedFolder["search_lan"]);
         $sharedFolder["use_sync_trash"]   = boolval($sharedFolder["use_sync_trash"]);
 
+        // Users
+        if (empty($sharedFolder["users"]["user"])) {
+            $sharedFolder["users"] = array();
+        } else {
+            $sharedFolder["users"] = $sharedFolder["users"]["user"];
+
+            foreach ($sharedFolder["users"] as $user)
+                $user["full_access"] = boolval($user["full_access"]);
+        }
+
         // Get full path for presentation
         $xPath = sprintf("//system/shares/sharedfolder[uuid='%s']", $sharedFolder["sharedfolderref"]);
         $dir = $xmlConfig->get($xPath);
@@ -244,7 +254,18 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
                 "search_lan"       : { "type" : "boolean" },
                 "use_sync_trash"   : { "type" : "boolean" },
 
-                "existing_secret"  : { "type" : "string", "optional" : true }
+                "existing_secret"  : { "type" : "string", "optional" : true },
+
+                "users" : {
+                    "type"  : "array",
+                    "items" : {
+                        "type" : "object",
+                        "properties" : {
+                            "username"    : { "type" : "string" },
+                            "full_access" : { "type" : "boolean" }
+                        }
+                    }
+                }
             }
         }');
 
@@ -256,9 +277,9 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             "use_dht"          => boolval($params["use_dht"]),
             "search_lan"       => boolval($params["search_lan"]),
             "use_sync_trash"   => boolval($params["use_sync_trash"]),
+            "users"            => !empty($params["users"]) ?
+                array("user" => $params["users"]) : array(),
         );
-
-
 
         if (!empty($params["existing_secret"])) {
             try {
@@ -294,8 +315,6 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
                 $sharedFolder["ro_secret"] = $oldConfig["ro_secret"];
             }
         }
-
-
 
         // Save configuration
         $success = false;

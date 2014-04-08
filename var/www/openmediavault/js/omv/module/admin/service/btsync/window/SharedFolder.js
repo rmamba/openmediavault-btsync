@@ -16,31 +16,24 @@
  */
 
 // require("js/omv/WorkspaceManager.js")
+// require("js/omv/form/Panel.js")
+// require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
+// require("js/omv/workspace/window/Tab.js")
 // require("js/omv/workspace/window/plugin/ConfigObject.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
-Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
-    extend : "OMV.workspace.window.Form",
-    uses   : [
-        "OMV.workspace.window.plugin.ConfigObject"
-    ],
+Ext.define("OMV.module.admin.service.btsync.window.SharedFolderSettings", {
+    extend : "OMV.form.Panel",
 
-    plugins : [{
-        ptype : "configobject"
-    }],
+    title       : _("General"),
+    bodyPadding : "5 5 0",
 
-    rpcService   : "Btsync",
-    rpcSetMethod : "set",
-
-    hideResetButton : true,
-    uuid            : null,
-
-    getFormItems : function() {
+    initComponent : function() {
         var me = this;
         var isNew = !me.uuid;
 
-        return [{
+        var items = [{
             xtype : "fieldset",
             title : _("General"),
             items : [{
@@ -111,5 +104,185 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
                 }]
             }]
         }];
+
+        Ext.apply(me, {
+            items: items
+        });
+
+        me.callParent(arguments);
     }
 });
+
+Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUser", {
+    extend   : "OMV.workspace.window.Form",
+    requires : [
+        "OMV.data.Store",
+        "OMV.data.Model",
+        "OMV.data.proxy.Rpc"
+    ],
+
+    mode  : "local",
+    width : 500,
+
+    getFormItems : function() {
+        var me = this;
+        return [{
+            xtype      : "usercombo",
+            name       : "username",
+            fieldLabel : _("User"),
+            userType   : "normal",
+            editable   : false,
+            allowNone  : true
+        },{
+            xtype      : "checkbox",
+            name       : "full_access",
+            fieldLabel : _("Full access"),
+            checked    : false
+        }];
+    }
+});
+
+
+Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUsers", {
+    extend   : "OMV.workspace.grid.Panel",
+    requires : [
+        "OMV.data.Store",
+        "OMV.data.Model",
+        "OMV.module.admin.service.btsync.window.SharedFolderUser"
+    ],
+
+    title  : _("Users"),
+    mode   : "local",
+    height : 200,
+
+    columns : [{
+        header    : _("User"),
+        flex      : 1,
+        sortable  : true,
+        dataIndex : "username"
+    },{
+        xtype     : "booleaniconcolumn",
+        header    : _("Full access"),
+        sortable  : true,
+        dataIndex : "full_access",
+        align     : "center",
+        width     : 80,
+        resizable : false,
+        trueIcon  : "switch_on.png",
+        falseIcon : "switch_off.png"
+    }],
+
+    initComponent : function() {
+        var me = this;
+
+        Ext.apply(me, {
+            store : Ext.create("OMV.data.Store", {
+                autoLoad : false,
+                model    : OMV.data.Model.createImplicit({
+                    idProperty : "username",
+                    fields     : [
+                        { name : "username", type : "string" },
+                        { name : "full_access", type: "boolean" }
+                    ]
+                }),
+                proxy : {
+                    type   : "memory",
+                    reader : {
+                        type : "json"
+                    },
+                    sorters : [{
+                        direction : "ASC",
+                        property  : "username"
+                    }]
+                }
+            })
+        });
+
+        me.callParent(arguments);
+    },
+
+    onAddButton: function() {
+        var me = this;
+        Ext.create("OMV.module.admin.service.btsync.window.SharedFolderUser", {
+            title     : _("Add user"),
+            listeners : {
+                scope  : me,
+                submit : function(wnd, values) {
+                    var store = this.getStore();
+
+                    // Create and insert new record.
+                    var newRecord = new store.model;
+                    newRecord.beginEdit();
+                    newRecord.set(values);
+                    newRecord.endEdit();
+                    store.add(newRecord);
+                }
+            }
+        }).show();
+    },
+    onEditButton: function() {
+        var me = this;
+        var record = me.getSelected();
+
+        var wnd = Ext.create("OMV.module.admin.service.btsync.window.SharedFolderUser", {
+            title     : _("Edit user"),
+            listeners : {
+                scope     : me,
+                submit    : function(wnd, values) {
+                    record.beginEdit();
+                    record.set(values);
+                    record.endEdit();
+                }
+            }
+        });
+
+        wnd.setValues(record.data);
+        wnd.show();
+    },
+
+    setValues: function(values) {
+        var me = this;
+
+        return me.callParent([ values.users ]);
+    },
+
+    getValues: function() {
+        var me = this;
+        var values = me.callParent(arguments);
+
+        return {
+            users : values
+        };
+    }
+});
+
+Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
+    extend   : "OMV.workspace.window.Tab",
+    requires : [
+        "OMV.module.admin.service.btsync.window.SharedFolderSettings",
+        "OMV.module.admin.service.btsync.window.SharedFolderUsers"
+    ],
+
+    plugins : [{
+        ptype : "configobject"
+    }],
+
+    hideResetButton : true,
+
+    rpcService   : "Btsync",
+    rpcSetMethod : "set",
+
+    uuid : null,
+
+    getTabItems : function() {
+        var me = this;
+
+        return [
+            Ext.create("OMV.module.admin.service.btsync.window.SharedFolderSettings", {
+                uuid : me.uuid
+            }),
+            Ext.create("OMV.module.admin.service.btsync.window.SharedFolderUsers")
+        ];
+    }
+});
+
