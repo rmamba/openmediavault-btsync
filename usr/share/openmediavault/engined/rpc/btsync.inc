@@ -50,6 +50,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->registerMethod("getSettings");
         $this->registerMethod("setSettings");
         $this->registerMethod("getList");
+        $this->registerMethod("getFilteredList");
 
         // CRUD
         $this->registerMethod("get");
@@ -166,6 +167,66 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         foreach ($uuids as $uuid) {
             try {
                 $sharedFolders[] = $this->get(array("uuid" => $uuid), $context);
+            } catch (Exception $e) {
+                throw $e;
+            }
+        }
+
+        return $this->applyFilter(
+            $sharedFolders,
+            $params["start"],
+            $params["count"],
+            $params["sortfield"],
+            $params["sortdir"]
+        );
+    }
+
+    function getFilteredList($params, $context)
+    {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array(
+            "role" => OMV_ROLE_USER
+        ));
+
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, '{
+            "type"       : "object",
+            "properties" : {
+                "start"     : { "type" : "integer" },
+                "limit"     : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
+                "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
+                "sortdir"   : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '}
+            }
+        }');
+
+        $username = $context["username"];
+
+        // Get configuration object
+        $xPath = sprintf("%s/shared_folder[users/user/username='%s']/uuid",
+            $this->getSharedFoldersXPath(), $username);
+        $uuids = $xmlConfig->getList($xPath);
+
+        if (is_null($uuids))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $xPath);
+
+        $sharedFolders = array();
+
+        foreach ($uuids as $uuid) {
+            try {
+                $folder = $this->get(array("uuid" => $uuid), $this->getAdminContext());
+                $fullAccess = boolval(
+                    $xmlConfig->get(sprintf("%s/users/user[username='%s']/full_access",
+                        $this->getSharedFolderXPathByUuid($uuid), $username)));
+
+                $sharedFolders[] = array(
+                    "uuid"      => $folder["uuid"],
+                    "dir"       => $folder["dir"],
+                    "secret"    => $fullAccess ? $folder["secret"] : null,
+                    "ro_secret" => $folder["ro_secret"]
+                );
             } catch (Exception $e) {
                 throw $e;
             }
