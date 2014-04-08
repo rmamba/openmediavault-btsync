@@ -211,7 +211,7 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUsers", {
                     var store = this.getStore();
 
                     // Create and insert new record.
-                    var newRecord = new store.model;
+                    var newRecord = new store.model();
                     newRecord.beginEdit();
                     newRecord.set(values);
                     newRecord.endEdit();
