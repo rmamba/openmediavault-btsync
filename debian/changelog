@@ -2,6 +2,7 @@ openmediavault-btsync (1.0.0) stable; urgency=medium
 
   * OMV 1.0 compatibility
   * Allow normal users to get secrets from the web interface
+  * Add settings for device_name and lan_use_tcp
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 08 Feb 2014 02:23:56 +0100
 
