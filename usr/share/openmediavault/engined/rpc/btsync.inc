@@ -75,8 +75,10 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
 
         // Modify result data
         $settingsObject["enable"]         = boolval($object["enable"]);
+        $settingsObject["device_name"]    = $object["device_name"];
         $settingsObject["listening_port"] = intval($object["listening_port"]);
-        $settingsObject["use_upnp"]         = boolval($object["use_upnp"]);
+        $settingsObject["use_upnp"]       = boolval($object["use_upnp"]);
+        $settingsObject["lan_use_tcp"]    = boolval($object["lan_use_tcp"]);
         $settingsObject["download_limit"] = intval($object["download_limit"]);
         $settingsObject["upload_limit"]   = intval($object["upload_limit"]);
 
@@ -97,8 +99,10 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             "type"       : "object",
             "properties" : {
                 "enable"         : { "type" : "boolean" },
+                "device_name"    : { "type" : "string" },
                 "listening_port" : { "type" : "integer" },
                 "use_upnp"       : { "type" : "boolean" },
+                "lan_use_tcp"    : { "type" : "boolean" },
                 "download_limit" : { "type" : "integer" },
                 "upload_limit"   : { "type" : "integer" }
             }
@@ -113,8 +117,10 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         // Prepare configuration data
         $object = array(
             "enable"         => array_boolval($params, "enable"),
+            "device_name"    => $params["device_name"],
             "listening_port" => $params["listening_port"],
             "use_upnp"       => array_boolval($params, "use_upnp"),
+            "lan_use_tcp"       => array_boolval($params, "lan_use_tcp"),
             "download_limit" => $params["download_limit"],
             "upload_limit"   => $params["upload_limit"],
             "shared_folders" => $oldConfig["shared_folders"],

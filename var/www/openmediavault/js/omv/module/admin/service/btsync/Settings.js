@@ -38,6 +38,12 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
                 fieldLabel : _("Enable"),
                 checked    : false
             },{
+                xtype      : "textfield",
+                name       : "device_name",
+                fieldLabel : _("Device name"),
+                allowBlank : false,
+                value      : "Bittorrent Sync Server"
+            },{
                 xtype         : "numberfield",
                 name          : "listening_port",
                 fieldLabel    : _("Listening port"),
@@ -56,6 +62,11 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
                 name       : "use_upnp",
                 fieldLabel : _("Use UPnP"),
                 checked    : true
+            },{
+                xtype      : "checkbox",
+                name       : "lan_use_tcp",
+                fieldLabel : _("Use TCP"),
+                checked    : false
             },{
                 xtype         : "numberfield",
                 name          : "download_limit",
