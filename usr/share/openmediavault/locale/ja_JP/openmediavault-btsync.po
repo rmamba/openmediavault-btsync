@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139 <zubr139@ukr.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
@@ -11,117 +10,117 @@ msgstr ""
 "POT-Creation-Date: 2014-04-09 06:50-0500\n"
 "PO-Revision-Date: 2014-04-09 11:50+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault-btsync/language/uk/)\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault-btsync/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "0 - no limit"
-msgstr "0 - без обмежень"
+msgstr "0 - 制限なし"
 
 msgid "0 - randomize port"
-msgstr "0 - випадковий порт"
+msgstr "0 - ポートをランダム化"
 
 msgid "Add shared folder"
-msgstr "Додати спільну теку"
+msgstr "共有フォルダを追加"
 
 msgid "Add user"
 msgstr ""
 
 msgid "BitTorrent Sync"
-msgstr "BitTorrent синхронізація"
+msgstr "BitTorrent 同期"
 
 msgid "Btsync"
 msgstr ""
 
 msgid "Directory"
-msgstr "Каталог"
+msgstr "ディレクトリ"
 
 msgid "Download limit"
-msgstr "Ліміт завантаження"
+msgstr "ダウンロード制限"
 
 msgid "Edit shared folder"
-msgstr "Редагувати спільну теку"
+msgstr "共有フォルダの編集"
 
 msgid "Edit user"
 msgstr ""
 
 msgid "Enable"
-msgstr "Увімкнути"
+msgstr "有効"
 
 msgid "Existing secret"
-msgstr ""
+msgstr "既存のシークレット"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr ""
+msgstr "このサーバーで既存の共有フォルダを同期する場合は、このフィールド内の既存のシークレットを入力します。"
 
 msgid "Full access"
-msgstr "Повний доступ"
+msgstr "フルアクセス"
 
 msgid "General"
-msgstr "Загальне"
+msgstr "一般"
 
 msgid "Listening port"
-msgstr "Прослуховування порта"
+msgstr "待ちうけポート"
 
 msgid "Read-only"
-msgstr "Тільки для читання"
+msgstr "読み込み専用"
 
 msgid "Read-only secret"
-msgstr ""
+msgstr "読み込み専用シークレット"
 
 msgid "Search LAN"
-msgstr ""
+msgstr "LANのサーチ"
 
 msgid "Secret"
-msgstr ""
+msgstr "シークレット"
 
 msgid "Secret / QR"
-msgstr ""
+msgstr "シークレット/QR"
 
 msgid "Services"
 msgstr ""
 
 msgid "Settings"
-msgstr "Налаштування"
+msgstr "設定"
 
 msgid "Shared folder"
-msgstr "Спільна тека"
+msgstr "共有フォルダ"
 
 msgid "Shared folders"
-msgstr "Спільні теки"
+msgstr "共有フォルダ"
 
 msgid "Show secret/QR code"
-msgstr ""
+msgstr "シークレット/QRコードの表示"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr "Розташування повинно мати права на читання/запис для користувача/групи btsync"
+msgstr "ロケーションは btsync ユーザー/グループに 読み込み/書き込み 権限が必要です。"
 
 msgid "UUID"
 msgstr "UUID"
 
 msgid "Upload limit"
-msgstr "Ліміт вивантаження"
+msgstr "アップロード制限"
 
 msgid "Use DHT"
-msgstr "Використовувати DHT"
+msgstr "DHTを使用"
 
 msgid "Use UPnP"
-msgstr "Використовувати UPnP"
+msgstr "UPnPを使用"
 
 msgid "Use relay server"
-msgstr ""
+msgstr "リレーサーバを使用"
 
 msgid "Use sync trash"
-msgstr ""
+msgstr "同期ごみ箱を使用"
 
 msgid "Use tracker"
-msgstr "Використовувати трекер"
+msgstr "トラッカーを使用"
 
 msgid "User"
 msgstr ""

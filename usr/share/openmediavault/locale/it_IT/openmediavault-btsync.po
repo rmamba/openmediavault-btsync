@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Paolo Velati <paolo.velati@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-22 11:43-0600\n"
-"PO-Revision-Date: 2013-12-16 18:54+0000\n"
+"POT-Creation-Date: 2014-04-09 06:50-0500\n"
+"PO-Revision-Date: 2014-04-09 11:50+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-btsync/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,97 +19,112 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr ""
+msgstr "0 - nessun limite"
 
 msgid "0 - randomize port"
-msgstr ""
+msgstr "0 - porta causale"
 
 msgid "Add shared folder"
+msgstr "Aggiungi cartella condivisa"
+
+msgid "Add user"
 msgstr ""
 
 msgid "BitTorrent Sync"
+msgstr "BitTorrent Sync"
+
+msgid "Btsync"
 msgstr ""
 
 msgid "Directory"
-msgstr ""
+msgstr "Directory"
 
 msgid "Download limit"
-msgstr ""
+msgstr "Limite Download"
 
 msgid "Edit shared folder"
+msgstr "Modifica cartella condivisa"
+
+msgid "Edit user"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Existing secret"
-msgstr ""
+msgstr "Segreto esisitente"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr ""
+msgstr "Inserisci nel campo un segreto esistente se vuoi sincronizzare con questo server una cartella condivisa esistente."
 
 msgid "Full access"
-msgstr ""
+msgstr "Accesso completo"
 
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 msgid "Listening port"
-msgstr ""
+msgstr "Porta di ascolto"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Sola lettura"
 
 msgid "Read-only secret"
-msgstr ""
+msgstr "Segreto in sola lettura"
 
 msgid "Search LAN"
-msgstr ""
+msgstr "Cerca LAN"
 
 msgid "Secret"
-msgstr ""
+msgstr "Segreto"
 
 msgid "Secret / QR"
+msgstr "Segreto / QR"
+
+msgid "Services"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartella condivisa"
 
 msgid "Shared folders"
-msgstr ""
+msgstr "Cartelle condivise"
 
 msgid "Show secret/QR code"
-msgstr ""
+msgstr "Mostra Segreto / QR"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr ""
+msgstr "La posizione necessita i permessi di lettura/scrittura per l'utente/gruppo btsync"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Upload limit"
-msgstr ""
+msgstr "Limite Upload"
 
 msgid "Use DHT"
-msgstr ""
+msgstr "Usa DHT"
 
 msgid "Use UPnP"
-msgstr ""
+msgstr "Usa UPnP"
 
 msgid "Use relay server"
-msgstr ""
+msgstr "Usa relay server"
 
 msgid "Use sync trash"
-msgstr ""
+msgstr "Usa sync trash"
 
 msgid "Use tracker"
+msgstr "Usa tracker"
+
+msgid "User"
 msgstr ""
 
-msgid "btsync"
+msgid "Users"
 msgstr ""

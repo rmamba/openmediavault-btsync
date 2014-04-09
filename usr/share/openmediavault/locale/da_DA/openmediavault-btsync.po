@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-22 11:43-0600\n"
-"PO-Revision-Date: 2013-12-23 14:25+0000\n"
+"POT-Creation-Date: 2014-04-09 06:50-0500\n"
+"PO-Revision-Date: 2014-04-09 11:50+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-btsync/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -18,97 +19,112 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr ""
+msgstr "0 - ingen begrænsning"
 
 msgid "0 - randomize port"
-msgstr ""
+msgstr "0 - tilfældig port"
 
 msgid "Add shared folder"
+msgstr "Tilføj delt mappe"
+
+msgid "Add user"
 msgstr ""
 
 msgid "BitTorrent Sync"
+msgstr "BitTorrent Synk"
+
+msgid "Btsync"
 msgstr ""
 
 msgid "Directory"
-msgstr ""
+msgstr "Bibliotek"
 
 msgid "Download limit"
-msgstr ""
+msgstr "Download grænse"
 
 msgid "Edit shared folder"
+msgstr "Rediger delt mappe"
+
+msgid "Edit user"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Existing secret"
-msgstr ""
+msgstr "Eksisterende skjult "
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr ""
+msgstr "Indsæt en eksisterende skjult i dette felt, hvis du vil synkronisere en eksisterende delt mappe med denne server."
 
 msgid "Full access"
-msgstr ""
+msgstr "Fuld adgang"
 
 msgid "General"
-msgstr ""
+msgstr "Generelt"
 
 msgid "Listening port"
-msgstr ""
+msgstr "Lyttede port"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Skrivebeskyttet"
 
 msgid "Read-only secret"
-msgstr ""
+msgstr "Skrivebeskyttet skjult"
 
 msgid "Search LAN"
-msgstr ""
+msgstr "Søg LAN"
 
 msgid "Secret"
-msgstr ""
+msgstr "Skjult"
 
 msgid "Secret / QR"
+msgstr "Skjult / QR"
+
+msgid "Services"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Delt mappe"
 
 msgid "Shared folders"
-msgstr ""
+msgstr "Delte mapper"
 
 msgid "Show secret/QR code"
-msgstr ""
+msgstr "Vis skjult/QR kode"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr ""
+msgstr "Placeringen skal have læse/skrive rettigheder for brugeren/gruppen btsynk"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Upload limit"
-msgstr ""
+msgstr "Upload grænse"
 
 msgid "Use DHT"
-msgstr ""
+msgstr "Brug DHT"
 
 msgid "Use UPnP"
-msgstr ""
+msgstr "Brug UPnP"
 
 msgid "Use relay server"
-msgstr ""
+msgstr "Brug relay server"
 
 msgid "Use sync trash"
-msgstr ""
+msgstr "Brug synk affald"
 
 msgid "Use tracker"
+msgstr "Bruger tracker"
+
+msgid "User"
 msgstr ""
 
-msgid "btsync"
+msgid "Users"
 msgstr ""
