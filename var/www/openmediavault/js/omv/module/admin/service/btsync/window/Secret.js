@@ -16,61 +16,8 @@
  */
 
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/form/Panel.js")
 // require("js/omv/workspace/window/Tab.js")
-// require("js/omv/module/admin/service/btsync/libs/jsqr-0.2-min.js")
-
-Ext.define("OMV.module.admin.service.btsync.window.SecretTab", {
-    extend : "OMV.form.Panel",
-
-    bodyPadding : "5 5 0",
-
-    initComponent : function() {
-        var me = this;
-        var qrImage = me.generateQrCodeImage("btsync://" + me.qrDataText);
-
-        Ext.apply(me, {
-            items: [{
-                xtype : "textfield",
-                value : me.qrDataText
-            },{
-                html   : "<img height='376' width='376' style='width:100%;' src='" + qrImage + "' />",
-                margin : "0 0 10 0"
-            }]
-        });
-
-        me.callParent(arguments);
-    },
-
-    generateQrCodeImage : function(data) {
-        var qr = new JSQR();
-        var code = new qr.Code();
-
-        code.encodeMode = code.ENCODE_MODE.BYTE;
-        code.version = code.DEFAULT;
-        code.errorCorrection = code.ERROR_CORRECTION.H;
-
-        var input = new qr.Input();
-        input.dataType = input.DATA_TYPE.TEXT;
-        input.data = data;
-
-        var matrix = new qr.Matrix(input, code);
-
-        matrix.scale = 4;
-        matrix.margin = 2;
-
-        var canvas = document.createElement("canvas");
-        canvas.setAttribute("width", matrix.pixelWidth);
-        canvas.setAttribute("height", matrix.pixelWidth);
-        canvas.getContext("2d").fillStyle = "rgb(0,0,0)";
-        matrix.draw(canvas, 0, 0);
-
-        // Convert canvas to image data URL
-        var imageSrc = canvas.toDataURL("image/png");
-
-        return imageSrc;
-    }
-});
+// require("js/omv/module/admin/service/btsync/window/SecretTab.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.Secret", {
     extend   : "OMV.workspace.window.Tab",
