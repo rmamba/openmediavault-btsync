@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 06:50-0500\n"
-"PO-Revision-Date: 2014-04-09 11:50+0000\n"
+"POT-Creation-Date: 2014-04-10 10:54-0500\n"
+"PO-Revision-Date: 2014-04-10 15:54+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-btsync/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,9 @@ msgid "BitTorrent Sync"
 msgstr "BitTorrent Sync"
 
 msgid "Btsync"
+msgstr ""
+
+msgid "Device name"
 msgstr ""
 
 msgid "Directory"
@@ -110,6 +113,9 @@ msgstr "Limite Upload"
 
 msgid "Use DHT"
 msgstr "Usa DHT"
+
+msgid "Use TCP"
+msgstr ""
 
 msgid "Use UPnP"
 msgstr "Usa UPnP"

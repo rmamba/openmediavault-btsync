@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# kansuke <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 06:50-0500\n"
-"PO-Revision-Date: 2014-04-09 11:50+0000\n"
+"POT-Creation-Date: 2014-04-10 10:54-0500\n"
+"PO-Revision-Date: 2014-04-10 15:54+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault-btsync/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -27,12 +28,15 @@ msgid "Add shared folder"
 msgstr "共有フォルダを追加"
 
 msgid "Add user"
-msgstr ""
+msgstr "ユーザーの追加"
 
 msgid "BitTorrent Sync"
 msgstr "BitTorrent 同期"
 
 msgid "Btsync"
+msgstr "Btsync"
+
+msgid "Device name"
 msgstr ""
 
 msgid "Directory"
@@ -45,7 +49,7 @@ msgid "Edit shared folder"
 msgstr "共有フォルダの編集"
 
 msgid "Edit user"
-msgstr ""
+msgstr "ユーザーの編集"
 
 msgid "Enable"
 msgstr "有効"
@@ -83,7 +87,7 @@ msgid "Secret / QR"
 msgstr "シークレット/QR"
 
 msgid "Services"
-msgstr ""
+msgstr "サービス"
 
 msgid "Settings"
 msgstr "設定"
@@ -110,6 +114,9 @@ msgstr "アップロード制限"
 msgid "Use DHT"
 msgstr "DHTを使用"
 
+msgid "Use TCP"
+msgstr ""
+
 msgid "Use UPnP"
 msgstr "UPnPを使用"
 
@@ -123,7 +130,7 @@ msgid "Use tracker"
 msgstr "トラッカーを使用"
 
 msgid "User"
-msgstr ""
+msgstr "ユーザー"
 
 msgid "Users"
-msgstr ""
+msgstr "ユーザー"
