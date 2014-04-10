@@ -1,10 +1,10 @@
-openmediavault-btsync (1.0.0) stable; urgency=medium
+openmediavault-btsync (1.0.0.1) stable; urgency=medium
 
   * OMV 1.0 compatibility
   * Allow normal users to get secrets from the web interface
   * Add settings for device_name and lan_use_tcp
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 08 Feb 2014 02:23:56 +0100
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 10 Apr 2014 16:56:56 +0100
 
 openmediavault-btsync (0.5.6) stable; urgency=high
 
