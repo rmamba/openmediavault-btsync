@@ -34,6 +34,11 @@ case "$1" in
         fi
 
         echo "AUTOSTART=\"openmediavault\""      >  ${OMV_BTSYNC_DEFAULT_CONF}
+
+        # Activate package triggers. These triggers are only set during the
+        # package installation.
+        dpkg-trigger update-fixperms
+        dpkg-trigger update-locale
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
