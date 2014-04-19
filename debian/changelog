@@ -1,8 +1,9 @@
-openmediavault-btsync (1.0.0.2) UNRELEASED; urgency=low
+openmediavault-btsync (1.0.0.3) stable; urgency=low
 
   * Conform to OMV 0.6.0.6 trigger standards
+  * Add missing comma in config generation
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 16 Apr 2014 01:33:32 +0200
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 19 Apr 2014 16:55:26 +0200
 
 openmediavault-btsync (1.0.0.1) stable; urgency=medium
 
