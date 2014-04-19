@@ -56,7 +56,7 @@ cat <<EOF > ${OMV_BTSYNC_CONF}
     "storage_path": "/home/${OMV_BTSYNC_USER}/.sync",
     "check_for_updates": false,
     "use_upnp": ${use_upnp},
-    "lan_use_tcp": ${lan_use_tcp}
+    "lan_use_tcp": ${lan_use_tcp},
     "download_limit": ${download_limit},
     "upload_limit": ${upload_limit},
     "shared_folders": [
