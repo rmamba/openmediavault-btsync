@@ -23,33 +23,39 @@ require_once "openmediavault/error.inc";
 require_once "openmediavault/util.inc";
 require_once "openmediavault/initscript.inc";
 
-class OMVModuleBtsync extends OMVModuleServiceAbstract
-    implements OMVINotifyListener, OMVIModuleServiceStatus {
+class OMVModuleBtsync extends OMVModuleServiceAbstract implements
+    OMVINotifyListener,
+    OMVIModuleServiceStatus
+{
 
     private function getXPath()
     {
         return "//services/btsync";
     }
 
-	/**
-	 * Get the module name.
-	 */
-	public function getName()
-	{
-		return "btsync";
-	}
+    /**
+     * Get the module name.
+     */
+    public function getName()
+    {
+        return "btsync";
+    }
 
     /**
      * Get the status of the service
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         global $xmlConfig;
 
         $object = $xmlConfig->get($this->getXPath());
 
-        if (is_null($object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath());
+        if (is_null($object)) {
+            throw new OMVException(
+                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath()
+            );
+        }
 
         $initd = new OMVSysVInitScript($this->getName());
 
@@ -61,32 +67,41 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract
         );
     }
 
-	/**
-	 * Create and update the configuration
-	 */
-	public function applyConfig()
-	{
-	    $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
+    /**
+     * Create and update the configuration
+     */
+    public function applyConfig()
+    {
+        $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
 
-        if (0 !== $this->exec($cmd, $output))
-            throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-                $cmd, implode("\n", $output));
-	}
+        if (0 !== $this->exec($cmd, $output)) {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
+    }
 
     /**
      * Start the service
      */
-    public function startService() {
+    public function startService()
+    {
         global $xmlConfig;
 
         $object = $xmlConfig->get($this->getXPath());
 
-        if (is_null($object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath());
+        if (is_null($object)) {
+            throw new OMVException(
+                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath()
+            );
+        }
 
-        if (!boolval($object["enable"]))
+        if (!boolval($object["enable"])) {
             return;
+        }
 
         $initd = new OMVSysVInitScript($this->getName(), true);
         $initd->exec();
@@ -95,20 +110,23 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract
     /**
      * Stop the service
      */
-    public function stopService() {
+    public function stopService()
+    {
         $initd = new OMVSysVInitScript($this->getName());
         $initd->exec();
     }
 
-	/**
-	 * Bind listeners.
-	 */
-	public function bindListeners(OMVNotifyDispatcher $dispatcher) {
-	    $dispatcher->addListener(
+    /**
+     * Bind listeners.
+     */
+    public function bindListeners(OMVNotifyDispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
             OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
             "org.openmediavault.services.btsync",
-            array($this, "setDirty"));
-	}
+            array($this, "setDirty")
+        );
+    }
 }
 
 // Register module
