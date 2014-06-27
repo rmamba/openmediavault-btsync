@@ -30,8 +30,8 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolderSettings", {
         var isNew = !me.uuid;
 
         var items = [{
-            xtype  : "fieldset",
-            title  : _("General"),
+            xtype : "fieldset",
+            title : _("General"),
             items : [{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref",
