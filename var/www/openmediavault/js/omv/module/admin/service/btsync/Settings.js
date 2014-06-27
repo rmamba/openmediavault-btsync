@@ -92,6 +92,43 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
                     text  : _("0 - no limit")
                 }]
             }]
+        },{
+            xtype    : "fieldset",
+            title    : "Web UI/API",
+            defaults : {
+                labelSeparator : ""
+            },
+            items : [{
+                xtype      : "checkbox",
+                name       : "webui_enable",
+                fieldLabel : _("Enable"),
+                checked    : false,
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("This only affects the UI, the API is always activated.")
+                }]
+            },{
+                xtype         : "numberfield",
+                name          : "webui_port",
+                fieldLabel    : _("Port"),
+                vtype         : "port",
+                minValue      : 1024,
+                maxValue      : 65535,
+                allowDecimals : false,
+                allowNegative : false,
+                allowBlank    : false,
+                value         : 8888
+            },{
+                xtype      : "textfield",
+                name       : "webui_username",
+                fieldLabel : _("Username"),
+                allowBlank : false
+            },{
+                xtype      : "passwordfield",
+                name       : "webui_password",
+                fieldLabel : _("Password"),
+                allowBlank : false
+            }]
         }];
     }
 });

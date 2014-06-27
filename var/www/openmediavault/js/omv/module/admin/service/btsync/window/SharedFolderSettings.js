@@ -30,12 +30,13 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolderSettings", {
         var isNew = !me.uuid;
 
         var items = [{
-            xtype : "fieldset",
-            title : _("General"),
+            xtype  : "fieldset",
+            title  : _("General"),
             items : [{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref",
                 fieldLabel : _("Shared folder"),
+                readOnly   : !isNew,
                 plugins    : [{
                     ptype : "fieldinfo",
                     text  : _("The location needs to have read/write permissions for the user/group btsync")
