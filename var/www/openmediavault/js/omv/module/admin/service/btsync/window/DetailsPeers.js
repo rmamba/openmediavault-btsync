@@ -44,7 +44,7 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
         dataIndex : "id"
     },{
         header    : _("Name"),
-        flex      : 1,
+        flex      : 2,
         sortable  : true,
         dataIndex : "name"
     },{
@@ -54,7 +54,7 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
         dataIndex : "synced",
         renderer  : function(value) {
             if (value !== 0) {
-                return new Date(value * 1000).toISOString();
+                return Ext.Date.format(new Date(value * 1000), "Y-m-d H:i:s");
             }
 
             return "Not synced";
