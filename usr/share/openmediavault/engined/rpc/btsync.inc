@@ -54,6 +54,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->registerMethod("setSettings");
         $this->registerMethod("getList");
         $this->registerMethod("getFilteredList");
+        $this->registerMethod("getSharedFolderPeers");
 
         // CRUD
         $this->registerMethod("get");
@@ -264,7 +265,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
                 $xPath
             );
         }
-        
+
         $sharedFolders = array();
 
         foreach ($uuids as $uuid) {
@@ -474,11 +475,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             );
         }
 
-        $workingSecret = $sharedFolder["ro_secret"];
-
-        if (!empty($sharedFolder["secret"])) {
-            $workingSecret = $sharedFolder["secret"];
-        }
+        $workingSecret = $this->getWorkingSecret($sharedFolder);
 
         $api->setFolderPreferences(
             $workingSecret,
@@ -522,11 +519,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             );
         }
 
-        $workingSecret = $object["ro_secret"];
-
-        if (!empty($object["secret"])) {
-            $workingSecret = $object["secret"];
-        }
+        $workingSecret = $this->getWorkingSecret($sharedFolder);
 
         // Remove it from Btsync
         $api->removeFolder($workingSecret);
@@ -542,13 +535,44 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         }
     }
 
+    public function getSharedFolderPeers($params, $context)
+    {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array(
+            "role" => OMV_ROLE_EVERYONE
+        ));
+
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, '{
+            "type" : "object",
+            "properties" : {
+                "start" : { "type" : "integer" },
+                "limit" : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
+                "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
+                "sortdir" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '},
+                "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
+            }
+        }');
+
+        $api = $this->btsyncApiFactory();
+        $sharedFolder = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
+        $workingSecret = $this->getWorkingSecret($sharedFolder);
+
+        // Filter result
+        return $this->applyFilter(
+            $api->getFolderPeers($workingSecret),
+            $params["start"],
+            $params["limit"],
+            $params["sortfield"],
+            $params["sortdir"]
+        );
+    }
+
     private function getSharedFolderPreferences($sharedFolder, \Btsync\ApiInterface $api)
     {
-        $workingSecret = $sharedFolder["ro_secret"];
-
-        if (!empty($sharedFolder["secret"])) {
-            $workingSecret = $sharedFolder["secret"];
-        }
+        $workingSecret = $this->getWorkingSecret($sharedFolder);
 
         $prefs = $api->getFolderPreferences($workingSecret);
 
@@ -579,6 +603,17 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             $object["webui_password"],
             $object["webui_port"]
         );
+    }
+
+    private function getWorkingSecret($sharedFolder)
+    {
+        $workingSecret = $sharedFolder["ro_secret"];
+
+        if (!empty($sharedFolder["secret"])) {
+            $workingSecret = $sharedFolder["secret"];
+        }
+
+        return $workingSecret;
     }
 }
 
