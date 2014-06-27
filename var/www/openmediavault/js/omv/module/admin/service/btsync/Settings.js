@@ -25,6 +25,30 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
     rpcGetMethod : "getSettings",
     rpcSetMethod : "setSettings",
 
+    initComponent : function() {
+        var me = this;
+
+        me.on("load", function () {
+            var checked = me.findField("enable").checked;
+            var parent = me.up("tabpanel");
+
+            if (!parent)
+                return;
+
+            var gridPanel = parent.down("grid");
+
+            if (gridPanel) {
+                if (checked) {
+                    gridPanel.enable();
+                } else {
+                    gridPanel.disable();
+                }
+            }
+        });
+
+        me.callParent(arguments);
+    },
+
     getFormItems : function() {
         return [{
             xtype    : "fieldset",
