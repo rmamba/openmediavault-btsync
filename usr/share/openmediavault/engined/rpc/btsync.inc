@@ -509,6 +509,8 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             }'
         );
 
+        $api = $this->btsyncApiFactory();
+
         // Get the shared folder
         $object = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
 
