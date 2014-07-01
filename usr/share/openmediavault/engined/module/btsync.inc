@@ -27,6 +27,10 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements
     OMVINotifyListener,
     OMVIModuleServiceStatus
 {
+    private function getEventMessagePath()
+    {
+        return "org.openmediavault.services.btsync";
+    }
 
     private function getXPath()
     {
@@ -123,7 +127,7 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements
     {
         $dispatcher->addListener(
             OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-            "org.openmediavault.services.btsync",
+            $this->getEventMessagePath(),
             array($this, "setDirty")
         );
     }

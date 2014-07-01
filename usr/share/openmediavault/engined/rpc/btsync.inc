@@ -28,6 +28,11 @@ require_once "btsync/Api.php";
 
 class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
 {
+    private function getEventMessagePath()
+    {
+        return "org.openmediavault.services.btsync";
+    }
+
     private function getXPath()
     {
         return "//services/btsync";
@@ -167,7 +172,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
 
         // Notify configuration changes
         $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.services.btsync", $object);
+        $dispatcher->notify(OMV_NOTIFY_MODIFY, $this->getEventMessagePath(), $object);
 
         return $object;
     }
@@ -547,16 +552,19 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         ));
 
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type" : "object",
-            "properties" : {
-                "start" : { "type" : "integer" },
-                "limit" : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
-                "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
-                "sortdir" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '},
-                "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
-            }
-        }');
+        $this->validateMethodParams(
+            $params,
+            '{
+                "type" : "object",
+                "properties" : {
+                    "start" : { "type" : "integer" },
+                    "limit" : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
+                    "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
+                    "sortdir" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '},
+                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
+                }
+            }'
+        );
 
         $api = $this->btsyncApiFactory();
         $sharedFolder = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
