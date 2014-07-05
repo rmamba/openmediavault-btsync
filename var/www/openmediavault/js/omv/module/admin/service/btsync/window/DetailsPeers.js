@@ -44,14 +44,14 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
         dataIndex : "id"
     },{
         header    : _("Name"),
-        flex      : 2,
+        flex      : 1,
         sortable  : true,
         dataIndex : "name"
     },{
         header    : _("Synced"),
-        flex      : 2,
         sortable  : true,
         dataIndex : "synced",
+        width     : 120,
         renderer  : function(value) {
             if (value !== 0) {
                 return Ext.Date.format(new Date(value * 1000), "Y-m-d H:i:s");
@@ -63,12 +63,18 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
         header    : _("Download"),
         flex      : 1,
         sortable  : true,
-        dataIndex : "download"
+        dataIndex : "download",
+        renderer  : function(value) {
+            return this.rateRenderer(value);
+        }
     },{
         header    : _("Upload"),
         flex      : 1,
         sortable  : true,
-        dataIndex : "upload"
+        dataIndex : "upload",
+        renderer  : function(value) {
+            return this.rateRenderer(value);
+        }
     }],
 
     initComponent : function() {
@@ -104,5 +110,26 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
         });
 
         me.callParent(arguments);
+    },
+
+    rateRenderer : function(value) {
+        var suffixes = ["B", "KB", "MB", "GB"];
+        var suffix = suffixes[0];
+
+        if (value !== 0) {
+            for (var i = 0; i < suffixes.length; i++) {
+                if (value < 1024) {
+                    suffix = suffixes[i];
+
+                    break;
+                }
+
+                value = value / 1024;
+            }
+        }
+
+        value = value.toFixed(2);
+
+        return value + " " + suffix + "/s";
     }
 });
