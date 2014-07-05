@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 10:54-0500\n"
-"PO-Revision-Date: 2014-04-10 16:39+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2014-07-05 09:47-0500\n"
+"PO-Revision-Date: 2014-07-05 14:48+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-btsync/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,17 @@ msgstr "BitTorrent Sync"
 msgid "Btsync"
 msgstr "Btsync"
 
+msgid "Details / Secret / QR"
+msgstr ""
+
 msgid "Device name"
 msgstr "Nome dispositivo"
 
 msgid "Directory"
 msgstr "Directory"
+
+msgid "Download"
+msgstr ""
 
 msgid "Download limit"
 msgstr "Limite Download"
@@ -68,8 +74,23 @@ msgstr "Accesso completo"
 msgid "General"
 msgstr "Generale"
 
+msgid "ID"
+msgstr ""
+
 msgid "Listening port"
 msgstr "Porta di ascolto"
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Peers"
+msgstr ""
+
+msgid "Port"
+msgstr ""
 
 msgid "Read-only"
 msgstr "Sola lettura"
@@ -83,9 +104,6 @@ msgstr "Cerca LAN"
 msgid "Secret"
 msgstr "Segreto"
 
-msgid "Secret / QR"
-msgstr "Segreto / QR"
-
 msgid "Services"
 msgstr "Servizi"
 
@@ -98,15 +116,24 @@ msgstr "Cartella condivisa"
 msgid "Shared folders"
 msgstr "Cartelle condivise"
 
-msgid "Show secret/QR code"
-msgstr "Mostra Segreto / QR"
+msgid "Show details"
+msgstr ""
+
+msgid "Synced"
+msgstr ""
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
 msgstr "La posizione necessita i permessi di lettura/scrittura per l'utente/gruppo btsync"
 
+msgid "This only affects the UI, the API is always activated."
+msgstr ""
+
 msgid "UUID"
 msgstr "UUID"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload limit"
 msgstr "Limite Upload"
@@ -131,6 +158,9 @@ msgstr "Usa tracker"
 
 msgid "User"
 msgstr "Utente"
+
+msgid "Username"
+msgstr ""
 
 msgid "Users"
 msgstr "Utenti"

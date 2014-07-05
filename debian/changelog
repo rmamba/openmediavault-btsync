@@ -1,9 +1,10 @@
-openmediavault-btsync (1.0.0.4) UNRELEASED; urgency=low
+openmediavault-btsync (1.0.0.4) stable; urgency=low
 
   * Rewrite the code to make us of the Btsync API
   * Show connected peers and their details
+  * Update locales
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 27 Jun 2014 17:21:59 +0200
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 05 Jul 2014 09:46:45 -0500
 
 openmediavault-btsync (1.0.0.3) stable; urgency=low
 

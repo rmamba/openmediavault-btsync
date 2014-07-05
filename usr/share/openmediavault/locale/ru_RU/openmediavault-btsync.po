@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# артур Мудрых <arturmon82@gmail.com>, 2013
+# артур Мудрых <arturmon82@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 10:54-0500\n"
-"PO-Revision-Date: 2014-04-10 15:54+0000\n"
-"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2014-07-05 09:47-0500\n"
+"PO-Revision-Date: 2014-07-05 14:48+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault-btsync/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,19 +28,25 @@ msgid "Add shared folder"
 msgstr "Добавить общую папку"
 
 msgid "Add user"
-msgstr ""
+msgstr "Добавить пользователя"
 
 msgid "BitTorrent Sync"
 msgstr "BitTorrent Sync"
 
 msgid "Btsync"
+msgstr "Btsync"
+
+msgid "Details / Secret / QR"
 msgstr ""
 
 msgid "Device name"
-msgstr ""
+msgstr "Имя устройства"
 
 msgid "Directory"
 msgstr "Директория"
+
+msgid "Download"
+msgstr ""
 
 msgid "Download limit"
 msgstr "Ограничение загрузки"
@@ -49,7 +55,7 @@ msgid "Edit shared folder"
 msgstr "Редактировать общую папку"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Редактировать пользователя"
 
 msgid "Enable"
 msgstr "Включить"
@@ -68,8 +74,23 @@ msgstr "Полный доступ"
 msgid "General"
 msgstr "Общий"
 
+msgid "ID"
+msgstr ""
+
 msgid "Listening port"
 msgstr "Слушать порт"
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Peers"
+msgstr ""
+
+msgid "Port"
+msgstr ""
 
 msgid "Read-only"
 msgstr "Только для чтения"
@@ -83,11 +104,8 @@ msgstr "Поиск в LAN"
 msgid "Secret"
 msgstr "\"Секретное\" слово"
 
-msgid "Secret / QR"
-msgstr "\"Секретное\" слово /QR"
-
 msgid "Services"
-msgstr ""
+msgstr "Сервисы"
 
 msgid "Settings"
 msgstr "Настройки"
@@ -98,15 +116,24 @@ msgstr "Общая папка"
 msgid "Shared folders"
 msgstr "Общие папки"
 
-msgid "Show secret/QR code"
-msgstr "Показать \"Секретное\" слово / QR-код"
+msgid "Show details"
+msgstr ""
+
+msgid "Synced"
+msgstr ""
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
 msgstr "Эта общая папка должна иметь права на чтение/запись пользователю/группе btsync"
 
+msgid "This only affects the UI, the API is always activated."
+msgstr ""
+
 msgid "UUID"
 msgstr "UUID"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload limit"
 msgstr "Ограничение раздачи"
@@ -115,7 +142,7 @@ msgid "Use DHT"
 msgstr "Использовать DHT"
 
 msgid "Use TCP"
-msgstr ""
+msgstr "Использовать TCP"
 
 msgid "Use UPnP"
 msgstr "Использовать UPnP"
@@ -130,7 +157,10 @@ msgid "Use tracker"
 msgstr "Использовать трекер"
 
 msgid "User"
+msgstr "Пользователь"
+
+msgid "Username"
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"

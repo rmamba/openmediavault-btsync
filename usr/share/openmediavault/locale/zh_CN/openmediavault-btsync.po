@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 10:54-0500\n"
-"PO-Revision-Date: 2014-04-10 15:54+0000\n"
-"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2014-07-05 09:47-0500\n"
+"PO-Revision-Date: 2014-07-05 14:48+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-btsync/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,17 @@ msgstr "BitTorrent 同步"
 msgid "Btsync"
 msgstr "Btsync"
 
+msgid "Details / Secret / QR"
+msgstr ""
+
 msgid "Device name"
 msgstr ""
 
 msgid "Directory"
 msgstr "目录"
+
+msgid "Download"
+msgstr ""
 
 msgid "Download limit"
 msgstr "下载限制"
@@ -68,8 +74,23 @@ msgstr "完全访问"
 msgid "General"
 msgstr "常规"
 
+msgid "ID"
+msgstr ""
+
 msgid "Listening port"
 msgstr "监听端口"
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Peers"
+msgstr ""
+
+msgid "Port"
+msgstr ""
 
 msgid "Read-only"
 msgstr "只读"
@@ -83,9 +104,6 @@ msgstr "搜索局域网"
 msgid "Secret"
 msgstr "密钥"
 
-msgid "Secret / QR"
-msgstr "密钥 / QR"
-
 msgid "Services"
 msgstr "服务"
 
@@ -98,15 +116,24 @@ msgstr "共享文件夹"
 msgid "Shared folders"
 msgstr "共享文件夹"
 
-msgid "Show secret/QR code"
-msgstr "显示密钥 / 二维码"
+msgid "Show details"
+msgstr ""
+
+msgid "Synced"
+msgstr ""
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
 msgstr "该位置需要 btsync的用户/组有读写权限"
 
+msgid "This only affects the UI, the API is always activated."
+msgstr ""
+
 msgid "UUID"
 msgstr "UUID"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload limit"
 msgstr "上传限制"
@@ -131,6 +158,9 @@ msgstr "启用追踪"
 
 msgid "User"
 msgstr "用户"
+
+msgid "Username"
+msgstr ""
 
 msgid "Users"
 msgstr "用户"

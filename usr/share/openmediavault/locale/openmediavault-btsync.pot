@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 10:54-0500\n"
+"POT-Creation-Date: 2014-07-05 09:47-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,10 +35,16 @@ msgstr ""
 msgid "Btsync"
 msgstr ""
 
+msgid "Details / Secret / QR"
+msgstr ""
+
 msgid "Device name"
 msgstr ""
 
 msgid "Directory"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Download limit"
@@ -65,7 +71,22 @@ msgstr ""
 msgid "General"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
 msgid "Listening port"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Peers"
+msgstr ""
+
+msgid "Port"
 msgstr ""
 
 msgid "Read-only"
@@ -80,9 +101,6 @@ msgstr ""
 msgid "Secret"
 msgstr ""
 
-msgid "Secret / QR"
-msgstr ""
-
 msgid "Services"
 msgstr ""
 
@@ -95,13 +113,22 @@ msgstr ""
 msgid "Shared folders"
 msgstr ""
 
-msgid "Show secret/QR code"
+msgid "Show details"
+msgstr ""
+
+msgid "Synced"
 msgstr ""
 
 msgid "The location needs to have read/write permissions for the user/group btsync"
 msgstr ""
 
+msgid "This only affects the UI, the API is always activated."
+msgstr ""
+
 msgid "UUID"
+msgstr ""
+
+msgid "Upload"
 msgstr ""
 
 msgid "Upload limit"
@@ -126,6 +153,9 @@ msgid "Use tracker"
 msgstr ""
 
 msgid "User"
+msgstr ""
+
+msgid "Username"
 msgstr ""
 
 msgid "Users"

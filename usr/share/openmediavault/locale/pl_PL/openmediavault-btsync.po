@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014
-# qba111 <j.ratajczak@eqba.pl>, 2014
+# Jakub Ratajczak <j.ratajczak@eqba.pl>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 10:54-0500\n"
-"PO-Revision-Date: 2014-04-10 15:54+0000\n"
-"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2014-07-05 09:47-0500\n"
+"PO-Revision-Date: 2014-07-05 14:48+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-btsync/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,19 +29,25 @@ msgid "Add shared folder"
 msgstr "Dodaj katalog"
 
 msgid "Add user"
-msgstr ""
+msgstr "Dodaj użytkownika"
 
 msgid "BitTorrent Sync"
 msgstr "BitTorrent Sync"
 
 msgid "Btsync"
+msgstr "Btsync"
+
+msgid "Details / Secret / QR"
 msgstr ""
 
 msgid "Device name"
-msgstr ""
+msgstr "Nazwa użądzenia"
 
 msgid "Directory"
 msgstr "Katalog"
+
+msgid "Download"
+msgstr ""
 
 msgid "Download limit"
 msgstr "Limit pobierania"
@@ -50,7 +56,7 @@ msgid "Edit shared folder"
 msgstr "Edytuj udostępniony katalog"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Edytuj użytkownika"
 
 msgid "Enable"
 msgstr "Włącz"
@@ -69,8 +75,23 @@ msgstr "Pełny dostęp"
 msgid "General"
 msgstr "Główne"
 
+msgid "ID"
+msgstr ""
+
 msgid "Listening port"
 msgstr "Port nasłuchu"
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Peers"
+msgstr ""
+
+msgid "Port"
+msgstr ""
 
 msgid "Read-only"
 msgstr "Tylko do odczytu"
@@ -84,11 +105,8 @@ msgstr "Szukaj LAN"
 msgid "Secret"
 msgstr "Klucz"
 
-msgid "Secret / QR"
-msgstr "QR klucza"
-
 msgid "Services"
-msgstr ""
+msgstr "Usługi"
 
 msgid "Settings"
 msgstr "Ustawienia"
@@ -99,15 +117,24 @@ msgstr "Udostępniony katalog"
 msgid "Shared folders"
 msgstr "Udostępnione katalogi"
 
-msgid "Show secret/QR code"
-msgstr "Pokaż klucz/QR kod"
+msgid "Show details"
+msgstr ""
+
+msgid "Synced"
+msgstr ""
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
 msgstr "Wskazany zasób musi mieć ustawione prawo do zapisu i odczytu dla użytkownika/grupy btsync"
 
+msgid "This only affects the UI, the API is always activated."
+msgstr ""
+
 msgid "UUID"
 msgstr "UUID"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload limit"
 msgstr "Limit wysyłania"
@@ -116,7 +143,7 @@ msgid "Use DHT"
 msgstr "Użyj DHT"
 
 msgid "Use TCP"
-msgstr ""
+msgstr "Użyj TCP"
 
 msgid "Use UPnP"
 msgstr "Użyj UPnP"
@@ -131,7 +158,10 @@ msgid "Use tracker"
 msgstr "Użyj trakera"
 
 msgid "User"
+msgstr "Użytkownik"
+
+msgid "Username"
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "Użytkownicy"
