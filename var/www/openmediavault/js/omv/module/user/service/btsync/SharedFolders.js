@@ -20,7 +20,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
-// require("js/omv/module/admin/service/btsync/window/Secret.js")
+// require("js/omv/module/admin/service/btsync/window/Details.js")
 
 Ext.define("OMV.module.user.service.btsync.SharedFolders", {
     extend   : "OMV.workspace.grid.Panel",
@@ -28,7 +28,7 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         "OMV.data.Store",
         "OMV.data.Model",
         "OMV.data.proxy.Rpc",
-        "OMV.module.admin.service.btsync.window.Secret"
+        "OMV.module.admin.service.btsync.window.Details"
     ],
 
     hidePagingToolbar : false,
@@ -88,7 +88,7 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         me.doReload();
 
         var selModel = me.getSelectionModel();
-        selModel.on("selectionchange", me.updateShowSecretButtonState, me);
+        selModel.on("selectionchange", me.updateDetailsButtonState, me);
 
         me.callParent(arguments);
     },
@@ -98,12 +98,12 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         var items = me.callParent(arguments);
 
         Ext.Array.push(items, [{
-            id       : me.getId() + "-secret",
+            id       : me.getId() + "-details",
             xtype    : "button",
-            text     : _("Show secret/QR code"),
+            text     : _("Show details"),
             icon     : "images/book.png",
             iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler  : Ext.Function.bind(me.onShowSecretButton, me, [ me ]),
+            handler  : Ext.Function.bind(me.onDetailsButton, me, [ me ]),
             scope    : me,
             disabled : true
         }]);
@@ -111,27 +111,28 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         return items;
     },
 
-    onShowSecretButton : function() {
+    onDetailsButton : function() {
         var me = this;
         var record = me.getSelected();
 
         if (!record)
             return;
 
-        Ext.create("OMV.module.admin.service.btsync.window.Secret", {
+        Ext.create("OMV.module.admin.service.btsync.window.Details", {
+            uuid      : record.get("uuid"),
             secret    : record.get("secret"),
             ro_secret : record.get("ro_secret")
         }).show();
     },
 
-    updateShowSecretButtonState : function(model, records) {
+    updateDetailsButtonState : function(model, records) {
         var me = this;
-        var showSecretButton= me.queryById(me.getId() + "-secret");
+        var detailsButton= me.queryById(me.getId() + "-details");
 
         if(records.length === 1) {
-            showSecretButton.enable();
+            detailsButton.enable();
         } else {
-            showSecretButton.disable();
+            detailsButton.disable();
         }
     }
 

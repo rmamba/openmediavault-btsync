@@ -25,6 +25,30 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
     rpcGetMethod : "getSettings",
     rpcSetMethod : "setSettings",
 
+    initComponent : function() {
+        var me = this;
+
+        me.on("load", function () {
+            var checked = me.findField("enable").checked;
+            var parent = me.up("tabpanel");
+
+            if (!parent)
+                return;
+
+            var gridPanel = parent.down("grid");
+
+            if (gridPanel) {
+                if (checked) {
+                    gridPanel.enable();
+                } else {
+                    gridPanel.disable();
+                }
+            }
+        });
+
+        me.callParent(arguments);
+    },
+
     getFormItems : function() {
         return [{
             xtype    : "fieldset",
@@ -91,6 +115,43 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
                     ptype : "fieldinfo",
                     text  : _("0 - no limit")
                 }]
+            }]
+        },{
+            xtype    : "fieldset",
+            title    : "Web UI/API",
+            defaults : {
+                labelSeparator : ""
+            },
+            items : [{
+                xtype      : "checkbox",
+                name       : "webui_enable",
+                fieldLabel : _("Enable"),
+                checked    : false,
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("This only affects the UI, the API is always activated.")
+                }]
+            },{
+                xtype         : "numberfield",
+                name          : "webui_port",
+                fieldLabel    : _("Port"),
+                vtype         : "port",
+                minValue      : 1024,
+                maxValue      : 65535,
+                allowDecimals : false,
+                allowNegative : false,
+                allowBlank    : false,
+                value         : 8888
+            },{
+                xtype      : "textfield",
+                name       : "webui_username",
+                fieldLabel : _("Username"),
+                allowBlank : false
+            },{
+                xtype      : "passwordfield",
+                name       : "webui_password",
+                fieldLabel : _("Password"),
+                allowBlank : false
             }]
         }];
     }

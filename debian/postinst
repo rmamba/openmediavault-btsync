@@ -15,13 +15,18 @@ case "$1" in
         if ! omv_config_exists "${SERVICE_XPATH}"; then
             omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
             omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
-            omv_config_add_element "${SERVICE_XPATH}" "device_name" "Bittorrent Sync Server"
+            omv_config_add_element "${SERVICE_XPATH}" "device_name" "BitTorrent Sync Server"
             omv_config_add_element "${SERVICE_XPATH}" "listening_port" "0"
             omv_config_add_element "${SERVICE_XPATH}" "use_upnp" "1"
             omv_config_add_element "${SERVICE_XPATH}" "lan_use_tcp" "0"
             omv_config_add_element "${SERVICE_XPATH}" "download_limit" "0"
             omv_config_add_element "${SERVICE_XPATH}" "upload_limit" "0"
             omv_config_add_element "${SERVICE_XPATH}" "shared_folders"
+
+            omv_config_add_element "${SERVICE_XPATH}" "webui_enable" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "webui_port" "8888"
+            omv_config_add_element "${SERVICE_XPATH}" "webui_username" "admin"
+            omv_config_add_element "${SERVICE_XPATH}" "webui_password" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 10)"
         fi
 
         if ! getent passwd ${OMV_BTSYNC_USER} >/dev/null 2>&1; then

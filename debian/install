@@ -1,2 +1,4 @@
-usr/share/openmediavault/* usr/share/openmediavault
-var/www/openmediavault/*   var/www/openmediavault
+usr/share/openmediavault/*         usr/share/openmediavault
+usr/share/php/btsync/*             usr/share/php/btsync
+var/lib/openmediavault/*btsync.key var/lib/openmediavault
+var/www/openmediavault/*           var/www/openmediavault

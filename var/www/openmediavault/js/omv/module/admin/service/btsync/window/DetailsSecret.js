@@ -19,7 +19,7 @@
 // require("js/omv/form/Panel.js")
 // require("js/omv/module/admin/service/btsync/libs/jsqr-0.2-min.js")
 
-Ext.define("OMV.module.admin.service.btsync.window.SecretTab", {
+Ext.define("OMV.module.admin.service.btsync.window.DetailsSecret", {
     extend : "OMV.form.Panel",
 
     bodyPadding : "5 5 0",
