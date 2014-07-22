@@ -102,7 +102,7 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
             handler  : Ext.Function.bind(me.onDetailsButton, me, [ me ]),
             scope    : me,
             disabled : true,
-            selectionChangeConfig : {
+            selectionConfig : {
                 minSelection : 1,
                 maxSelection : 1
             }
