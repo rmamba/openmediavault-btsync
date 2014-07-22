@@ -86,10 +86,6 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         });
 
         me.doReload();
-
-        var selModel = me.getSelectionModel();
-        selModel.on("selectionchange", me.updateDetailsButtonState, me);
-
         me.callParent(arguments);
     },
 
@@ -105,7 +101,11 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
             iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
             handler  : Ext.Function.bind(me.onDetailsButton, me, [ me ]),
             scope    : me,
-            disabled : true
+            disabled : true,
+            selectionChangeConfig : {
+                minSelection : 1,
+                maxSelection : 1
+            }
         }]);
 
         return items;
@@ -123,19 +123,7 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
             secret    : record.get("secret"),
             ro_secret : record.get("ro_secret")
         }).show();
-    },
-
-    updateDetailsButtonState : function(model, records) {
-        var me = this;
-        var detailsButton= me.queryById(me.getId() + "-details");
-
-        if(records.length === 1) {
-            detailsButton.enable();
-        } else {
-            detailsButton.disable();
-        }
     }
-
 });
 
 OMV.WorkspaceManager.registerPanel({
