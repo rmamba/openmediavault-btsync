@@ -103,8 +103,8 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
             scope    : me,
             disabled : true,
             selectionConfig : {
-                minSelection : 1,
-                maxSelection : 1
+                minSelections : 1,
+                maxSelections : 1
             }
         }]);
 
