@@ -63,9 +63,8 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         autoload   : true,
         remoteSort : false,
         model      : OMV.data.Model.createImplicit({
-            idProperty   : "uuid",
-            totalPoperty : "total",
-            fields       : [
+            idProperty : "uuid",
+            fields     : [
                 { name : "uuid" },
                 { name : "dir" },
                 { name : "secret" },
