@@ -81,7 +81,7 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
 
         Ext.apply(me, {
             store : Ext.create("OMV.data.Store", {
-                autoload   : true,
+                autoLoad   : true,
                 remoteSort : false,
                 model      : OMV.data.Model.createImplicit({
                     idProperty : "uuid",

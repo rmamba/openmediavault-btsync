@@ -60,7 +60,7 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
     }],
 
     store : Ext.create("OMV.data.Store", {
-        autoload   : true,
+        autoLoad   : true,
         remoteSort : false,
         model      : OMV.data.Model.createImplicit({
             idProperty : "uuid",
@@ -79,11 +79,6 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
             }
         }
     }),
-
-    initComponent : function() {
-        this.callParent();
-        this.doReload();
-    },
 
     getTopToolbarItems : function() {
         var me = this;

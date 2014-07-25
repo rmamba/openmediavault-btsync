@@ -56,9 +56,9 @@ Ext.define("OMV.module.admin.service.btsync.SharedFolders", {
         sortable  : true,
         dataIndex : "ro_secret"
     }],
-    
+
     store : Ext.create("OMV.data.Store", {
-        autoload   : true,
+        autoLoad   : true,
         remoteSort : false,
         model      : OMV.data.Model.createImplicit({
             idProperty : "uuid",
