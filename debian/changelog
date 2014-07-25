@@ -1,3 +1,9 @@
+openmediavault-btsync (1.0.7) stable; urgency=low
+
+  * Remove misspelled unused totalPoperty
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 25 Jul 2014 14:27:38 +0200
+
 openmediavault-btsync (1.0.0.6) stable; urgency=low
 
   * Conform to OMV 1.0.7 selectionchange changes
