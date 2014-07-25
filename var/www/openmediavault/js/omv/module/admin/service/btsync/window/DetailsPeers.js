@@ -28,15 +28,14 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
         "OMV.data.Model"
     ],
 
+    title      : _("Peers"),
     height : 400,
 
+    autoReload        : true,
     hideAddButton     : true,
     hideEditButton    : true,
     hideDeleteButton  : true,
     hidePagingToolbar : false,
-
-    title      : _("Peers"),
-    autoReload : true,
 
     columns : [{
         header    : _("ID"),
@@ -85,9 +84,8 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
                 autoload   : true,
                 remoteSort : false,
                 model      : OMV.data.Model.createImplicit({
-                    idProperty   : "uuid",
-                    totalPoperty : "total",
-                    fields       : [
+                    idProperty : "uuid",
+                    fields     : [
                         { name : "id" },
                         { name : "connection" },
                         { name : "name" },

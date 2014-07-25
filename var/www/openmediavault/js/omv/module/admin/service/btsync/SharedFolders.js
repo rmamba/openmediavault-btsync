@@ -34,6 +34,7 @@ Ext.define("OMV.module.admin.service.btsync.SharedFolders", {
     ],
 
     hidePagingToolbar : false,
+    reloadOnActivate  : true,
 
     columns : [{
         header    : _("UUID"),
@@ -55,37 +56,27 @@ Ext.define("OMV.module.admin.service.btsync.SharedFolders", {
         sortable  : true,
         dataIndex : "ro_secret"
     }],
-
-    initComponent : function() {
-        var me = this;
-
-        Ext.apply(me, {
-            store : Ext.create("OMV.data.Store", {
-                autoload   : true,
-                remoteSort : false,
-                model      : OMV.data.Model.createImplicit({
-                    idProperty   : "uuid",
-                    totalPoperty : "total",
-                    fields       : [
-                        { name : "uuid" },
-                        { name : "dir" },
-                        { name : "secret" },
-                        { name : "ro_secret" }
-                    ]
-                }),
-                proxy : {
-                    type    : "rpc",
-                    rpcData : {
-                        "service" : "Btsync",
-                        "method"  : "getList"
-                    }
-                }
-            })
-        });
-
-        me.doReload();
-        me.callParent(arguments);
-    },
+    
+    store : Ext.create("OMV.data.Store", {
+        autoload   : true,
+        remoteSort : false,
+        model      : OMV.data.Model.createImplicit({
+            idProperty : "uuid",
+            fields     : [
+                { name : "uuid" },
+                { name : "dir" },
+                { name : "secret" },
+                { name : "ro_secret" }
+            ]
+        }),
+        proxy : {
+            type    : "rpc",
+            rpcData : {
+                "service" : "Btsync",
+                "method"  : "getList"
+            }
+        }
+    }),
 
     getTopToolbarItems : function() {
         var me = this;

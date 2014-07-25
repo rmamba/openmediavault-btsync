@@ -36,6 +36,7 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
     hideEditButton    : true,
     hideDeleteButton  : true,
     hideRefreshButton : false,
+    reloadOnActivate  : true,
 
     columns : [{
         header    : _("UUID"),
@@ -58,35 +59,31 @@ Ext.define("OMV.module.user.service.btsync.SharedFolders", {
         dataIndex : "ro_secret"
     }],
 
+    store : Ext.create("OMV.data.Store", {
+        autoload   : true,
+        remoteSort : false,
+        model      : OMV.data.Model.createImplicit({
+            idProperty   : "uuid",
+            totalPoperty : "total",
+            fields       : [
+                { name : "uuid" },
+                { name : "dir" },
+                { name : "secret" },
+                { name : "ro_secret" }
+            ]
+        }),
+        proxy : {
+            type    : "rpc",
+            rpcData : {
+                "service" : "Btsync",
+                "method"  : "getFilteredList"
+            }
+        }
+    }),
+
     initComponent : function() {
-        var me = this;
-
-        Ext.apply(me, {
-            store : Ext.create("OMV.data.Store", {
-                autoload   : true,
-                remoteSort : false,
-                model      : OMV.data.Model.createImplicit({
-                    idProperty   : "uuid",
-                    totalPoperty : "total",
-                    fields       : [
-                        { name : "uuid" },
-                        { name : "dir" },
-                        { name : "secret" },
-                        { name : "ro_secret" }
-                    ]
-                }),
-                proxy : {
-                    type    : "rpc",
-                    rpcData : {
-                        "service" : "Btsync",
-                        "method"  : "getFilteredList"
-                    }
-                }
-            })
-        });
-
-        me.doReload();
-        me.callParent(arguments);
+        this.callParent();
+        this.doReload();
     },
 
     getTopToolbarItems : function() {
