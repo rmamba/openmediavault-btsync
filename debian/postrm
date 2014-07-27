@@ -10,6 +10,7 @@ SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
 OMV_BTSYNC_CONF="/etc/btsync/openmediavault.conf"
 OMV_BTSYNC_DEFAULT_CONF="/etc/default/btsync"
+OMV_BTSYNC_SERVICE_FILE="/etc/init.d/btsync"
 OMV_BTSYNC_STORAGE_PATH="/var/lib/openmediavault-btsync"
 
 case "$1" in
@@ -22,7 +23,9 @@ case "$1" in
     ;;
 
     remove)
-        service btsync stop
+        if [ -e "${OMV_BTSYNC_SERVICE_FILE}" ]; then
+            ${OMV_BTSYNC_SERVICE_FILE} stop
+        fi
 
         if [ -e "${OMV_BTSYNC_CONF}" ]; then
             /bin/rm "${OMV_BTSYNC_CONF}"
