@@ -20,11 +20,12 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_BTSYNC_API_KEY=/var/lib/openmediavault/openmediavault-btsync.key
-OMV_BTSYNC_CONF=/etc/btsync/openmediavault.conf
-OMV_BTSYNC_USER=btsync
+OMV_BTSYNC_STORAGE_PATH="/var/lib/openmediavault-btsync"
+OMV_BTSYNC_API_KEY="${OMV_BTSYNC_STORAGE_PATH}/btsync.key"
+OMV_BTSYNC_CONF="/etc/btsync/openmediavault.conf"
+OMV_BTSYNC_USER="btsync"
 
-OMV_BTSYNC_PLUGIN_XPATH=//services/btsync
+OMV_BTSYNC_PLUGIN_XPATH="//services/btsync"
 
 device_name=$(omv_config_get "${OMV_BTSYNC_PLUGIN_XPATH}/device_name")
 listening_port=$(omv_config_get "${OMV_BTSYNC_PLUGIN_XPATH}/listening_port")
@@ -71,7 +72,7 @@ cat <<EOF > ${OMV_BTSYNC_CONF}
 {
     "device_name": "${device_name}",
     "listening_port": ${listening_port},
-    "storage_path": "/home/${OMV_BTSYNC_USER}/.sync",
+    "storage_path": "${OMV_BTSYNC_STORAGE_PATH}",
     "check_for_updates": false,
     "use_upnp": ${use_upnp},
     "lan_use_tcp": ${lan_use_tcp},

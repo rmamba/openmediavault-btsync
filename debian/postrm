@@ -5,16 +5,24 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+SERVICE_XPATH_NAME="btsync"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+
+OMV_BTSYNC_CONF="/etc/btsync/openmediavault.conf"
+OMV_BTSYNC_DEFAULT_CONF="/etc/default/btsync"
+OMV_BTSYNC_STORAGE_PATH="/var/lib/openmediavault-btsync"
+
 case "$1" in
     purge)
-        omv_config_delete "//services/btsync"
+        omv_config_delete ${SERVICE_XPATH}
+
+        if [ -e "${OMV_BTSYNC_STORAGE_PATH}" ]; then
+            /bin/rm -rf "${OMV_BTSYNC_STORAGE_PATH}"
+        fi
     ;;
 
     remove)
-        OMV_BTSYNC_CONF=/etc/btsync/openmediavault.conf
-        OMV_BTSYNC_DEFAULT_CONF=/etc/default/btsync
-
-        /etc/init.d/btsync stop
+        service btsync stop
 
         if [ -e "${OMV_BTSYNC_CONF}" ]; then
             /bin/rm "${OMV_BTSYNC_CONF}"

@@ -5,13 +5,14 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+SERVICE_XPATH_NAME="btsync"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+OMV_BTSYNC_DEFAULT_CONF="/etc/default/btsync"
+OMV_BTSYNC_STORAGE_PATH="/var/lib/openmediavault-btsync"
+OMV_BTSYNC_USER="btsync"
+
 case "$1" in
     configure)
-        SERVICE_XPATH_NAME="btsync"
-        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
-        OMV_BTSYNC_DEFAULT_CONF=/etc/default/btsync
-        OMV_BTSYNC_USER=btsync
-
         if ! omv_config_exists "${SERVICE_XPATH}"; then
             omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
             omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
@@ -29,16 +30,13 @@ case "$1" in
             omv_config_add_element "${SERVICE_XPATH}" "webui_password" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 10)"
         fi
 
-        if ! getent passwd ${OMV_BTSYNC_USER} >/dev/null 2>&1; then
+        # Set the default autostart instance to openmediavault
+        echo "AUTOSTART=\"openmediavault\"" > ${OMV_BTSYNC_DEFAULT_CONF}
 
-            # Generate password and add user
-            NPSWD=$(makepasswd --crypt-md5 --chars=10)
-            NPSWD_CRYPT=$(echo ${NPSWD} | awk '{ print $2 }')
-
-            useradd -d /home/${OMV_BTSYNC_USER} -c "OpenMediaVault BitTorrent Sync user" -m -p ${NPSWD_CRYPT} ${OMV_BTSYNC_USER}
-        fi
-
-        echo "AUTOSTART=\"openmediavault\""      >  ${OMV_BTSYNC_DEFAULT_CONF}
+        # Fix permissions
+        chown -R ${OMV_BTSYNC_USER}:${OMV_BTSYNC_USER} ${OMV_BTSYNC_STORAGE_PATH}
+        find ${OMV_BTSYNC_STORAGE_PATH}/* -type d -exec chmod 750 {} +
+        find ${OMV_BTSYNC_STORAGE_PATH}/* -type f -exec chmod 640 {} +
 
         # Activate package triggers. These triggers are only set during the
         # package installation.
