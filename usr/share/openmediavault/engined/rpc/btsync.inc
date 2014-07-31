@@ -321,7 +321,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             '{
                 "type"       : "object",
                 "properties" : {
-                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID_NONE"] . '}
+                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
                 }
             }'
         );
@@ -509,7 +509,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             '{
                 "type"       : "object",
                 "properties" : {
-                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID_NONE"] . '}
+                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
                 }
             }'
         );
@@ -526,7 +526,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             );
         }
 
-        $workingSecret = $this->getWorkingSecret($sharedFolder);
+        $workingSecret = $this->getWorkingSecret($object);
 
         // Remove it from Btsync
         $api->removeFolder($workingSecret);
