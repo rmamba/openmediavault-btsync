@@ -1,3 +1,9 @@
+openmediavault-btsync (1.0.9) stable; urgency=low
+
+  * Use correct variable (closes #3) 
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 31 Jul 2014 12:05:47 +0200
+
 openmediavault-btsync (1.0.8) stable; urgency=low
 
   * Change storage_directory location
