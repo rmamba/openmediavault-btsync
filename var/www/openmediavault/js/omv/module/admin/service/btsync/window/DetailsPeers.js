@@ -111,7 +111,7 @@ Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
     },
 
     rateRenderer : function(value) {
-        var suffixes = ["B", "KB", "MB", "GB"];
+        var suffixes = ["B", "KiB", "MiB", "GiB"];
         var suffix = suffixes[0];
 
         if (value !== 0) {
