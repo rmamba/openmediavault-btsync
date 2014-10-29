@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-07-07 18:59+0000\n"
+"PO-Revision-Date: 2014-09-19 12:52+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-btsync/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -31,13 +31,13 @@ msgid "Add user"
 msgstr "Tilføj bruger"
 
 msgid "BitTorrent Sync"
-msgstr "BitTorrent Synk"
+msgstr "BitTorrent Sync"
 
 msgid "Btsync"
 msgstr "Btsync"
 
 msgid "Details / Secret / QR"
-msgstr "Detaljer / Skjult / QR"
+msgstr "Detaljer / Secret / QR"
 
 msgid "Device name"
 msgstr "Enhed navn"
@@ -61,12 +61,12 @@ msgid "Enable"
 msgstr "Aktiver"
 
 msgid "Existing secret"
-msgstr "Eksisterende skjult "
+msgstr "Eksisterende secret"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr "Indsæt en eksisterende skjult i dette felt, hvis du vil synkronisere en eksisterende delt mappe med denne server."
+msgstr "Indsæt en eksisterende secret i dette felt, hvis du vil synkronisere en eksisterende delt mappe med denne server."
 
 msgid "Full access"
 msgstr "Fuld adgang"
@@ -78,7 +78,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "Listening port"
-msgstr "Lyttede port"
+msgstr "Port, der lyttes på"
 
 msgid "Name"
 msgstr "Navn"
@@ -96,13 +96,13 @@ msgid "Read-only"
 msgstr "Skrivebeskyttet"
 
 msgid "Read-only secret"
-msgstr "Skrivebeskyttet skjult"
+msgstr "Skrivebeskyttet secret"
 
 msgid "Search LAN"
 msgstr "Søg LAN"
 
 msgid "Secret"
-msgstr "Skjult"
+msgstr "Secret"
 
 msgid "Services"
 msgstr "Tjenester"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-07-06 00:35+0000\n"
+"PO-Revision-Date: 2014-09-20 04:02+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-btsync/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgid "Add user"
 msgstr " 添加用户"
 
 msgid "BitTorrent Sync"
-msgstr "BitTorrent 同步"
+msgstr "BitTorrent同步"
 
 msgid "Btsync"
 msgstr "Btsync"
@@ -120,14 +120,14 @@ msgid "Show details"
 msgstr "显示细节"
 
 msgid "Synced"
-msgstr ""
+msgstr "同步"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr "该位置需要 btsync的用户/组有读写权限"
+msgstr "该位置需要btsync的用户/组有读写权限"
 
 msgid "This only affects the UI, the API is always activated."
-msgstr ""
+msgstr "如果勾选，不仅作用于UI，API也会一直处于激活状态。"
 
 msgid "UUID"
 msgstr "UUID"
@@ -139,13 +139,13 @@ msgid "Upload limit"
 msgstr "上传限制"
 
 msgid "Use DHT"
-msgstr "启用 DHT"
+msgstr "启用DHT"
 
 msgid "Use TCP"
 msgstr "使用TCP"
 
 msgid "Use UPnP"
-msgstr "启用 UPnP"
+msgstr "启用UPnP"
 
 msgid "Use relay server"
 msgstr "启用中继服务"
