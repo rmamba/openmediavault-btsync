@@ -224,7 +224,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         return $this->applyFilter(
             $sharedFolders,
             $params["start"],
-            $params["count"],
+            $params["limit"],
             $params["sortfield"],
             $params["sortdir"]
         );
@@ -300,7 +300,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         return $this->applyFilter(
             $sharedFolders,
             $params["start"],
-            $params["count"],
+            $params["limit"],
             $params["sortfield"],
             $params["sortdir"]
         );
