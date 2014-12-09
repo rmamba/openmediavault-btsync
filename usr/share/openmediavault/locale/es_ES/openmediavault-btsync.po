@@ -3,32 +3,32 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Paolo Velati <paolo.velati@gmail.com>, 2014
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-11-14 19:47+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-btsync/language/it/)\n"
+"PO-Revision-Date: 2014-11-16 10:02+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault-btsync/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr "0 - nessun limite"
+msgstr "0 - sin limite"
 
 msgid "0 - randomize port"
-msgstr "0 - porta causale"
+msgstr "0 - puerto aleatorio"
 
 msgid "Add shared folder"
-msgstr "Aggiungi cartella condivisa"
+msgstr "Añadir una carpeta compartida"
 
 msgid "Add user"
-msgstr "Aggiungi utente"
+msgstr "Añadir usuario"
 
 msgid "BitTorrent Sync"
 msgstr "BitTorrent Sync"
@@ -37,130 +37,130 @@ msgid "Btsync"
 msgstr "Btsync"
 
 msgid "Details / Secret / QR"
-msgstr "Dettagli / Segreto / QR"
+msgstr "Detalles / Secreto / QR"
 
 msgid "Device name"
-msgstr "Nome dispositivo"
+msgstr "Nombre del dispositivo"
 
 msgid "Directory"
-msgstr "Directory"
+msgstr "Directorio"
 
 msgid "Download"
-msgstr "Download"
+msgstr "Descarga"
 
 msgid "Download limit"
-msgstr "Limite Download"
+msgstr "Limite de descarga"
 
 msgid "Edit shared folder"
-msgstr "Modifica cartella condivisa"
+msgstr "Editar carpeta compartida"
 
 msgid "Edit user"
-msgstr "Modifica utente"
+msgstr "Editar usuario"
 
 msgid "Enable"
-msgstr "Abilita"
+msgstr "Habilitar"
 
 msgid "Existing secret"
-msgstr "Segreto esisitente"
+msgstr "Secreto existente"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr "Inserisci nel campo un segreto esistente se vuoi sincronizzare con questo server una cartella condivisa esistente."
+msgstr "Escriba un secreto en este campo si desea sincronizar una carpeta compartida con este servidor."
 
 msgid "Full access"
-msgstr "Accesso completo"
+msgstr "Acceso total"
 
 msgid "General"
-msgstr "Generale"
+msgstr "General"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "Listening port"
-msgstr "Porta di ascolto"
+msgstr "Puerto de escucha"
 
 msgid "Name"
-msgstr "Nome"
+msgstr "Nombre"
 
 msgid "Password"
-msgstr "Password"
+msgstr "Contraseña"
 
 msgid "Peers"
-msgstr "Peer"
+msgstr "Peers"
 
 msgid "Port"
-msgstr "Porta"
+msgstr "Puerto"
 
 msgid "Read-only"
-msgstr "Sola lettura"
+msgstr "Solo-Lectura"
 
 msgid "Read-only secret"
-msgstr "Segreto in sola lettura"
+msgstr "Secreto Solo-Lectura"
 
 msgid "Search LAN"
-msgstr "Cerca LAN"
+msgstr "Buscar en la red"
 
 msgid "Secret"
-msgstr "Segreto"
+msgstr "Secreto"
 
 msgid "Services"
-msgstr "Servizi"
+msgstr "Servicios"
 
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "Configuración"
 
 msgid "Shared folder"
-msgstr "Cartella condivisa"
+msgstr "Carpeta compartida"
 
 msgid "Shared folders"
-msgstr "Cartelle condivise"
+msgstr "Carpetas compartidas"
 
 msgid "Show details"
-msgstr "Mostra dettagli"
+msgstr "Mostrar detalles"
 
 msgid "Synced"
-msgstr "Sincronizzato"
+msgstr "Sincronizado"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr "La posizione necessita i permessi di lettura/scrittura per l'utente/gruppo btsync"
+msgstr "Se necesitan permisos de lectura / escritura para el usuario / grupo btsync"
 
 msgid "This only affects the UI, the API is always activated."
-msgstr "Questo riguarda solo l'interfaccia utente, l'API è sempre attiva."
+msgstr "Solo afecta a la interfaz, las APIs están siempre activadas."
 
 msgid "UUID"
 msgstr "UUID"
 
 msgid "Upload"
-msgstr "Upload"
+msgstr "Subida"
 
 msgid "Upload limit"
-msgstr "Limite Upload"
+msgstr "Limite de subida"
 
 msgid "Use DHT"
-msgstr "Usa DHT"
+msgstr "Usar DHT"
 
 msgid "Use TCP"
-msgstr "Usa TCP"
+msgstr "Usar TCP"
 
 msgid "Use UPnP"
-msgstr "Usa UPnP"
+msgstr "Usar UPnP"
 
 msgid "Use relay server"
-msgstr "Usa relay server"
+msgstr "Usar relay server"
 
 msgid "Use sync trash"
-msgstr "Usa sync trash"
+msgstr "Usar Papelera de Sync"
 
 msgid "Use tracker"
-msgstr "Usa tracker"
+msgstr "Usar tracker"
 
 msgid "User"
-msgstr "Utente"
+msgstr "Usuario"
 
 msgid "Username"
-msgstr "Nome Utente"
+msgstr "Usuario"
 
 msgid "Users"
-msgstr "Utenti"
+msgstr "Usuarios"

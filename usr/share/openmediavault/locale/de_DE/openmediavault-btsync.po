@@ -3,64 +3,65 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ettore Atalan <atalanttore@googlemail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-07-05 14:48+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/openmediavault-btsync/language/de_DE/)\n"
+"PO-Revision-Date: 2014-11-15 00:44+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault-btsync/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr ""
+msgstr "0 - keine Begrenzung"
 
 msgid "0 - randomize port"
-msgstr ""
+msgstr "0 - zufälliger Port"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "Gemeinsamen Ordner hinzufügen"
 
 msgid "Add user"
-msgstr ""
+msgstr "Benutzer hinzufügen"
 
 msgid "BitTorrent Sync"
 msgstr ""
 
 msgid "Btsync"
-msgstr ""
+msgstr "Btsync"
 
 msgid "Details / Secret / QR"
-msgstr ""
+msgstr "Details / Geheimnis / QR"
 
 msgid "Device name"
-msgstr ""
+msgstr "Gerätename"
 
 msgid "Directory"
-msgstr ""
+msgstr "Verzeichnis"
 
 msgid "Download"
-msgstr ""
+msgstr "Herunterladen"
 
 msgid "Download limit"
-msgstr ""
+msgstr "Herunterladen-Begrenzung"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "Gemeinsamen Ordner bearbeiten"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Benutzer bearbeiten"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 msgid "Existing secret"
-msgstr ""
+msgstr "Vorhandenes Geheimnis"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
@@ -68,58 +69,58 @@ msgid ""
 msgstr ""
 
 msgid "Full access"
-msgstr ""
+msgstr "Vollständiger Zugriff"
 
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 msgid "ID"
-msgstr ""
+msgstr "Kennung"
 
 msgid "Listening port"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Password"
-msgstr ""
+msgstr "Passwort"
 
 msgid "Peers"
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Schreibgeschützt"
 
 msgid "Read-only secret"
-msgstr ""
+msgstr "Schreibgeschütztes Geheimnis"
 
 msgid "Search LAN"
 msgstr ""
 
 msgid "Secret"
-msgstr ""
+msgstr "Geheimnis"
 
 msgid "Services"
-msgstr ""
+msgstr "Dienste"
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Gemeinsamer Ordner"
 
 msgid "Shared folders"
-msgstr ""
+msgstr "Gemeinsame Ordner"
 
 msgid "Show details"
-msgstr ""
+msgstr "Details anzeigen"
 
 msgid "Synced"
-msgstr ""
+msgstr "Synchronisiert"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
@@ -129,22 +130,22 @@ msgid "This only affects the UI, the API is always activated."
 msgstr ""
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Upload"
-msgstr ""
+msgstr "Hochladen"
 
 msgid "Upload limit"
-msgstr ""
+msgstr "Hochladen-Begrenzung"
 
 msgid "Use DHT"
-msgstr ""
+msgstr "DHT verwenden"
 
 msgid "Use TCP"
-msgstr ""
+msgstr "TCP verwenden"
 
 msgid "Use UPnP"
-msgstr ""
+msgstr "UPnP verwenden"
 
 msgid "Use relay server"
 msgstr ""
@@ -156,10 +157,10 @@ msgid "Use tracker"
 msgstr ""
 
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 msgid "Username"
-msgstr ""
+msgstr "Benutzername"
 
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"

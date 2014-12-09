@@ -3,164 +3,164 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139, 2013
+# kochin <kochinc@outlook.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-11-14 19:47+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault-btsync/language/uk/)\n"
+"PO-Revision-Date: 2014-11-24 16:49+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault-btsync/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "0 - no limit"
-msgstr "0 - без обмежень"
+msgstr "0 - 無限至"
 
 msgid "0 - randomize port"
-msgstr "0 - випадковий порт"
+msgstr "0 - 隨機通訊埠"
 
 msgid "Add shared folder"
-msgstr "Додати спільну теку"
+msgstr "新增共享檔案夾"
 
 msgid "Add user"
-msgstr ""
+msgstr "新增用戶"
 
 msgid "BitTorrent Sync"
-msgstr "BitTorrent синхронізація"
+msgstr "BitTorrent Sync"
 
 msgid "Btsync"
-msgstr ""
+msgstr "Btsync"
 
 msgid "Details / Secret / QR"
-msgstr ""
+msgstr "詳情 / 秘密 / QR"
 
 msgid "Device name"
-msgstr ""
+msgstr "裝置名稱"
 
 msgid "Directory"
-msgstr "Каталог"
+msgstr "目錄"
 
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 msgid "Download limit"
-msgstr "Ліміт завантаження"
+msgstr "下載限至"
 
 msgid "Edit shared folder"
-msgstr "Редагувати спільну теку"
+msgstr "編輯共享檔案夾"
 
 msgid "Edit user"
-msgstr ""
+msgstr "編輯用戶"
 
 msgid "Enable"
-msgstr "Увімкнути"
+msgstr "啟用"
 
 msgid "Existing secret"
-msgstr ""
+msgstr "現存秘密"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr ""
+msgstr "在此欄位中填入一個現存的秘密，如果您要對此伺服器上的一個現存共享檔案夾做同步。"
 
 msgid "Full access"
-msgstr "Повний доступ"
+msgstr "完全存取"
 
 msgid "General"
-msgstr "Загальне"
+msgstr "一般"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Listening port"
-msgstr "Прослуховування порта"
+msgstr "監聽通訊埠"
 
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 msgid "Peers"
-msgstr ""
+msgstr "同伴"
 
 msgid "Port"
-msgstr ""
+msgstr "通訊埠"
 
 msgid "Read-only"
-msgstr "Тільки для читання"
+msgstr "唯讀"
 
 msgid "Read-only secret"
-msgstr ""
+msgstr "唯讀秘密"
 
 msgid "Search LAN"
-msgstr ""
+msgstr "搜尋 LAN"
 
 msgid "Secret"
-msgstr ""
+msgstr "秘密"
 
 msgid "Services"
-msgstr ""
+msgstr "服務"
 
 msgid "Settings"
-msgstr "Налаштування"
+msgstr "設定"
 
 msgid "Shared folder"
-msgstr "Спільна тека"
+msgstr "共享檔案夾"
 
 msgid "Shared folders"
-msgstr "Спільні теки"
+msgstr "共享檔案夾"
 
 msgid "Show details"
-msgstr ""
+msgstr "顯示細節"
 
 msgid "Synced"
-msgstr ""
+msgstr "以同步"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr "Розташування повинно мати права на читання/запис для користувача/групи btsync"
+msgstr "該位置必須讓 用戶/群組 btsync 有 讀/寫 權限。"
 
 msgid "This only affects the UI, the API is always activated."
-msgstr ""
+msgstr "這僅影響 UI，API 是一直啟動著。"
 
 msgid "UUID"
 msgstr "UUID"
 
 msgid "Upload"
-msgstr ""
+msgstr "上傳"
 
 msgid "Upload limit"
-msgstr "Ліміт вивантаження"
+msgstr "上傳限制"
 
 msgid "Use DHT"
-msgstr "Використовувати DHT"
+msgstr "使用分散式雜湊表(DHT)"
 
 msgid "Use TCP"
-msgstr ""
+msgstr "使用 TCP"
 
 msgid "Use UPnP"
-msgstr "Використовувати UPnP"
+msgstr "使用 UPnP"
 
 msgid "Use relay server"
-msgstr ""
+msgstr "使用中繼伺服器"
 
 msgid "Use sync trash"
-msgstr ""
+msgstr "使用 sync trash"
 
 msgid "Use tracker"
-msgstr "Використовувати трекер"
+msgstr "使用追蹤器"
 
 msgid "User"
-msgstr ""
+msgstr "用戶"
 
 msgid "Username"
-msgstr ""
+msgstr "用戶名稱"
 
 msgid "Users"
-msgstr ""
+msgstr "用戶"

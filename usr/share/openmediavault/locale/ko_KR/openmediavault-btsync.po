@@ -3,164 +3,164 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Paolo Velati <paolo.velati@gmail.com>, 2014
+# Hyeonkyu Chu <hyeonkyu@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-11-14 19:47+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-btsync/language/it/)\n"
+"PO-Revision-Date: 2014-11-18 16:37+0000\n"
+"Last-Translator: Hyeonkyu Chu <hyeonkyu@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault-btsync/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "0 - no limit"
-msgstr "0 - nessun limite"
+msgstr "0 - 제한 없음"
 
 msgid "0 - randomize port"
-msgstr "0 - porta causale"
+msgstr "0 - 무작위 포트"
 
 msgid "Add shared folder"
-msgstr "Aggiungi cartella condivisa"
+msgstr "공유 폴더 추가"
 
 msgid "Add user"
-msgstr "Aggiungi utente"
+msgstr "사용자 추가"
 
 msgid "BitTorrent Sync"
 msgstr "BitTorrent Sync"
 
 msgid "Btsync"
-msgstr "Btsync"
+msgstr "BtSync"
 
 msgid "Details / Secret / QR"
-msgstr "Dettagli / Segreto / QR"
+msgstr "상세 / Secret / QR"
 
 msgid "Device name"
-msgstr "Nome dispositivo"
+msgstr "장치 이름"
 
 msgid "Directory"
-msgstr "Directory"
+msgstr "디렉터리"
 
 msgid "Download"
-msgstr "Download"
+msgstr "내려받기"
 
 msgid "Download limit"
-msgstr "Limite Download"
+msgstr "내려받기 제한"
 
 msgid "Edit shared folder"
-msgstr "Modifica cartella condivisa"
+msgstr "공유 폴더 편집"
 
 msgid "Edit user"
-msgstr "Modifica utente"
+msgstr "사용자 편집"
 
 msgid "Enable"
-msgstr "Abilita"
+msgstr "활성화"
 
 msgid "Existing secret"
-msgstr "Segreto esisitente"
+msgstr "기존의 Secret"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr "Inserisci nel campo un segreto esistente se vuoi sincronizzare con questo server una cartella condivisa esistente."
+msgstr "이 서버의 기존 공유 폴더를 동기화 할 경우, 이 항목에 기존의 Secret을 입력합니다."
 
 msgid "Full access"
-msgstr "Accesso completo"
+msgstr "모든 권한"
 
 msgid "General"
-msgstr "Generale"
+msgstr "일반"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "Listening port"
-msgstr "Porta di ascolto"
+msgstr "청취 포트"
 
 msgid "Name"
-msgstr "Nome"
+msgstr "이름"
 
 msgid "Password"
-msgstr "Password"
+msgstr "암호"
 
 msgid "Peers"
-msgstr "Peer"
+msgstr "피어"
 
 msgid "Port"
-msgstr "Porta"
+msgstr "포트"
 
 msgid "Read-only"
-msgstr "Sola lettura"
+msgstr "읽기-전용"
 
 msgid "Read-only secret"
-msgstr "Segreto in sola lettura"
+msgstr "읽기-전용 Secret"
 
 msgid "Search LAN"
-msgstr "Cerca LAN"
+msgstr "LAN 검색"
 
 msgid "Secret"
-msgstr "Segreto"
+msgstr "Secret"
 
 msgid "Services"
-msgstr "Servizi"
+msgstr "서비스"
 
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "설정"
 
 msgid "Shared folder"
-msgstr "Cartella condivisa"
+msgstr "공유 폴더"
 
 msgid "Shared folders"
-msgstr "Cartelle condivise"
+msgstr "공유 폴더"
 
 msgid "Show details"
-msgstr "Mostra dettagli"
+msgstr "상세 보기"
 
 msgid "Synced"
-msgstr "Sincronizzato"
+msgstr "동기화됨"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr "La posizione necessita i permessi di lettura/scrittura per l'utente/gruppo btsync"
+msgstr "이 위치의 읽기/쓰기 권한을 btsync 사용자/그룹이 가져야 합니다."
 
 msgid "This only affects the UI, the API is always activated."
-msgstr "Questo riguarda solo l'interfaccia utente, l'API è sempre attiva."
+msgstr "이것은  UI에만 영향을 줍니다. API는 항상 활성화됩니다."
 
 msgid "UUID"
 msgstr "UUID"
 
 msgid "Upload"
-msgstr "Upload"
+msgstr "올려주기"
 
 msgid "Upload limit"
-msgstr "Limite Upload"
+msgstr "올려주기 제한"
 
 msgid "Use DHT"
-msgstr "Usa DHT"
+msgstr "DHT 사용"
 
 msgid "Use TCP"
-msgstr "Usa TCP"
+msgstr "TCP 사용"
 
 msgid "Use UPnP"
-msgstr "Usa UPnP"
+msgstr "UPnP 사용"
 
 msgid "Use relay server"
-msgstr "Usa relay server"
+msgstr "중계 서버 사용"
 
 msgid "Use sync trash"
-msgstr "Usa sync trash"
+msgstr "동기화 휴지통 사용"
 
 msgid "Use tracker"
-msgstr "Usa tracker"
+msgstr "트래커 사용"
 
 msgid "User"
-msgstr "Utente"
+msgstr "사용자"
 
 msgid "Username"
-msgstr "Nome Utente"
+msgstr "사용자 이름"
 
 msgid "Users"
-msgstr "Utenti"
+msgstr "사용자들"
