@@ -26,8 +26,6 @@ Ext.define("OMV.module.admin.service.btsync.Settings", {
     rpcSetMethod: "setSettings",
 
     initComponent: function() {
-        var me = this;
-
         this.on("load", function() {
             var checked = this.findField("enable").checked;
             var parent = this.up("tabpanel");
