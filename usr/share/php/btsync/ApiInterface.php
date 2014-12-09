@@ -24,7 +24,7 @@ interface ApiInterface
     public function __construct($username, $password, $port = 8888, $host = "127.0.0.1");
     public function getFolders();
     public function getFolder($secret);
-    public function addFolder($dir, $secret = null);
+    public function addFolder($dir, $force = false, $secret = null);
     public function removeFolder($secret);
     public function getFolderPreferences($secret);
     public function setFolderPreferences(

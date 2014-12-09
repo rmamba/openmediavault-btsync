@@ -56,11 +56,15 @@ class Api implements ApiInterface
         return reset($result);
     }
 
-    public function addFolder($dir, $secret = null)
+    public function addFolder($dir, $force = false, $secret = null)
     {
         $params = array(
             "dir" => $dir,
         );
+
+        if ($force) {
+            $params["force"] = 1;
+        }
 
         if ($secret != null) {
             $params["secret"] = $secret;

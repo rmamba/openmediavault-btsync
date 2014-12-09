@@ -450,9 +450,9 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
 
             if (property_exists($secrets, "read_write")) {
                 $sharedFolder["secret"] = $secrets->read_write;
-                $folder = $api->addFolder($dir, $sharedFolder["secret"]);
+                $folder = $api->addFolder($dir, true, $sharedFolder["secret"]);
             } else {
-                $folder = $api->addFolder($dir, $sharedFolder["ro_secret"]);
+                $folder = $api->addFolder($dir, true, $sharedFolder["ro_secret"]);
             }
         }
 
