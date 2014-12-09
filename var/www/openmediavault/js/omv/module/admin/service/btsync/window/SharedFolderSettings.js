@@ -20,92 +20,91 @@
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.SharedFolderSettings", {
-    extend : "OMV.form.Panel",
+    extend: "OMV.form.Panel",
 
-    title       : _("General"),
-    bodyPadding : "5 5 0",
+    title: _("General"),
+    bodyPadding: "5 5 0",
 
-    initComponent : function() {
-        var me = this;
-        var isNew = !me.uuid;
+    initComponent: function() {
+        var isNew = !this.uuid;
 
         var items = [{
-            xtype : "fieldset",
-            title : _("General"),
-            items : [{
-                xtype      : "sharedfoldercombo",
-                name       : "sharedfolderref",
-                fieldLabel : _("Shared folder"),
-                readOnly   : !isNew,
-                plugins    : [{
-                    ptype : "fieldinfo",
-                    text  : _("The location needs to have read/write permissions for the user/group btsync")
+            xtype: "fieldset",
+            title: _("General"),
+            items: [{
+                xtype: "sharedfoldercombo",
+                name: "sharedfolderref",
+                fieldLabel: _("Shared folder"),
+                readOnly: !isNew,
+                plugins: [{
+                    ptype: "fieldinfo",
+                    text: _("The location needs to have read/write permissions for the user/group btsync")
                 }]
-            },{
-                xtype      : "textfield",
-                name       : "existing_secret",
-                fieldLabel : _("Existing secret"),
-                allowBlank : true,
-                disabled   : !isNew,
-                hidden     : !isNew,
-                plugins    : [{
-                    ptype : "fieldinfo",
-                    text  : _("Fill in a existing secret in this field if you want to sync an existing shared folder with this server.")
+            }, {
+                xtype: "textfield",
+                name: "existing_secret",
+                fieldLabel: _("Existing secret"),
+                allowBlank: true,
+                disabled: !isNew,
+                hidden: !isNew,
+                plugins: [{
+                    ptype: "fieldinfo",
+                    text: _("Fill in a existing secret in this field if you want to sync an existing shared folder with this server.")
                 }]
             }]
-        },{
-            xtype : "fieldset",
-            title : "Options",
-            layout   : "column",
-            defaults : {
-                columnWidth : 0.5,
-                layout      : "form",
-                border      : false,
+        }, {
+            xtype: "fieldset",
+            title: "Options",
+            layout: "column",
+            defaults: {
+                columnWidth: 0.5,
+                layout: "form",
+                border: false,
             },
-            items : [{
-                defaults : {
-                    hideLabel      : true,
-                    labelSeparator : ""
+            items: [{
+                defaults: {
+                    hideLabel: true,
+                    labelSeparator: ""
                 },
-                items : [{
-                    xtype      : "checkbox",
-                    name       : "use_relay_server",
-                    boxLabel   : _("Use relay server"),
-                    checked    : true
-                },{
-                    xtype      : "checkbox",
-                    name       : "use_tracker",
-                    boxLabel   : _("Use tracker"),
-                    checked    : true
-                },{
-                    xtype      : "checkbox",
-                    name       : "use_dht",
-                    boxLabel   : _("Use DHT"),
-                    checked    : false
+                items: [{
+                    xtype: "checkbox",
+                    name: "use_relay_server",
+                    boxLabel: _("Use relay server"),
+                    checked: true
+                }, {
+                    xtype: "checkbox",
+                    name: "use_tracker",
+                    boxLabel: _("Use tracker"),
+                    checked: true
+                }, {
+                    xtype: "checkbox",
+                    name: "use_dht",
+                    boxLabel: _("Use DHT"),
+                    checked: false
                 }]
-            },{
-                defaults : {
-                    hideLabel      : true,
-                    labelSeparator : ""
+            }, {
+                defaults: {
+                    hideLabel: true,
+                    labelSeparator: ""
                 },
-                items : [{
-                    xtype      : "checkbox",
-                    name       : "search_lan",
-                    boxLabel   : _("Search LAN"),
-                    checked    : true
-                },{
-                    xtype      : "checkbox",
-                    name       : "use_sync_trash",
-                    boxLabel   : _("Use sync trash"),
-                    checked    : true
+                items: [{
+                    xtype: "checkbox",
+                    name: "search_lan",
+                    boxLabel: _("Search LAN"),
+                    checked: true
+                }, {
+                    xtype: "checkbox",
+                    name: "use_sync_trash",
+                    boxLabel: _("Use sync trash"),
+                    checked: true
                 }]
             }]
         }];
 
-        Ext.apply(me, {
+        Ext.apply(this, {
             items: items
         });
 
-        me.callParent(arguments);
+        this.callParent(arguments);
     }
 });

@@ -33,19 +33,23 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         return "org.openmediavault.services.btsync";
     }
 
-    private function getXPath()
+    private function getXpath()
     {
-        return "//services/btsync";
+        return "/config/services/btsync";
     }
 
-    private function getSharedFoldersXPath()
+    private function getSharedFoldersXpath()
     {
-        return sprintf("%s/shared_folders", $this->getXPath(), $uuid);
+        return sprintf("%s/shared_folders", $this->getXpath(), $uuid);
     }
 
-    private function getSharedFolderXPathByUuid($uuid)
+    private function getSharedFolderXpathByUuid($uuid)
     {
-        return sprintf("%s/shared_folder[uuid='%s']", $this->getSharedFoldersXPath(), $uuid);
+        return sprintf(
+            "%s/shared_folder[uuid='%s']",
+            $this->getSharedFoldersXpath(),
+            $uuid
+        );
     }
 
     public function getName()
@@ -77,25 +81,25 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         ));
 
         // Get configuration object
-        $object = $xmlConfig->get($this->getXPath());
+        $object = $xmlConfig->get($this->getXpath());
         if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 
         // Modify result data
-        $settingsObject["enable"]         = boolval($object["enable"]);
-        $settingsObject["device_name"]    = $object["device_name"];
+        $settingsObject["enable"] = boolval($object["enable"]);
+        $settingsObject["device_name"] = $object["device_name"];
         $settingsObject["listening_port"] = intval($object["listening_port"]);
-        $settingsObject["use_upnp"]       = boolval($object["use_upnp"]);
-        $settingsObject["lan_use_tcp"]    = boolval($object["lan_use_tcp"]);
+        $settingsObject["use_upnp"] = boolval($object["use_upnp"]);
+        $settingsObject["lan_use_tcp"] = boolval($object["lan_use_tcp"]);
         $settingsObject["download_limit"] = intval($object["download_limit"]);
-        $settingsObject["upload_limit"]   = intval($object["upload_limit"]);
+        $settingsObject["upload_limit"] = intval($object["upload_limit"]);
 
-        $settingsObject["webui_enable"]   = boolval($object["webui_enable"]);
-        $settingsObject["webui_port"]     = intval($object["webui_port"]);
+        $settingsObject["webui_enable"] = boolval($object["webui_enable"]);
+        $settingsObject["webui_port"] = intval($object["webui_port"]);
         $settingsObject["webui_username"] = $object["webui_username"];
         $settingsObject["webui_password"] = $object["webui_password"];
 
@@ -115,45 +119,45 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type"       : "object",
-                "properties" : {
-                    "enable"         : { "type" : "boolean" },
-                    "device_name"    : { "type" : "string" },
-                    "listening_port" : { "type" : "integer" },
-                    "use_upnp"       : { "type" : "boolean" },
-                    "lan_use_tcp"    : { "type" : "boolean" },
-                    "download_limit" : { "type" : "integer" },
-                    "upload_limit"   : { "type" : "integer" },
+                "type": "object",
+                "properties": {
+                    "enable": { "type": "boolean" },
+                    "device_name": { "type": "string" },
+                    "listening_port": { "type": "integer" },
+                    "use_upnp": { "type": "boolean" },
+                    "lan_use_tcp": { "type": "boolean" },
+                    "download_limit": { "type": "integer" },
+                    "upload_limit": { "type": "integer" },
 
-                    "webui_enable"   : { "type" : "boolean" },
-                    "webui_port"     : { "type" : "integer", "minimum": 1024, "maximum": 65535 },
-                    "webui_username" : { "type" : "string", "minLength" : 3 },
-                    "webui_password" : { "type" : "string", "minLength" : 8 }
+                    "webui_enable": { "type": "boolean" },
+                    "webui_port": { "type": "integer", "minimum": 1024, "maximum": 65535 },
+                    "webui_username": { "type": "string", "minLength": 3 },
+                    "webui_password": { "type": "string", "minLength": 8 }
                 }
             }'
         );
 
         // Get configuration object
-        $oldConfig = $xmlConfig->get($this->getXPath());
+        $oldConfig = $xmlConfig->get($this->getXpath());
         if (is_null($oldConfig)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 
         // Prepare configuration data
         $object = array(
-            "enable"         => array_boolval($params, "enable"),
-            "device_name"    => $params["device_name"],
+            "enable" => array_boolval($params, "enable"),
+            "device_name" => $params["device_name"],
             "listening_port" => $params["listening_port"],
-            "use_upnp"       => array_boolval($params, "use_upnp"),
-            "lan_use_tcp"    => array_boolval($params, "lan_use_tcp"),
+            "use_upnp" => array_boolval($params, "use_upnp"),
+            "lan_use_tcp" => array_boolval($params, "lan_use_tcp"),
             "download_limit" => $params["download_limit"],
-            "upload_limit"   => $params["upload_limit"],
+            "upload_limit" => $params["upload_limit"],
 
-            "webui_enable"   => array_boolval($params, "webui_enable"),
-            "webui_port"     => $params["webui_port"],
+            "webui_enable" => array_boolval($params, "webui_enable"),
+            "webui_port" => $params["webui_port"],
             "webui_username" => $params["webui_username"],
             "webui_password" => $params["webui_password"],
 
@@ -161,10 +165,10 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         );
 
         // Set configuration object
-        if (false === $xmlConfig->replace($this->getXPath(), $object)) {
+        if (false === $xmlConfig->replace($this->getXpath(), $object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 
@@ -190,24 +194,24 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type"       : "object",
-                "properties" : {
-                    "start"     : { "type" : "integer" },
-                    "limit"     : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
-                    "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
-                    "sortdir"   : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '}
+                "type": "object",
+                "properties": {
+                    "start": { "type": "integer" },
+                    "limit": {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
+                    "sortfield": {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
+                    "sortdir": {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '}
                 }
             }'
         );
 
         // Get configuration object
-        $xPath = sprintf("%s/shared_folder/uuid", $this->getSharedFoldersXPath());
-        $uuids = $xmlConfig->getList($xPath);
+        $xpath = sprintf("%s/shared_folder/uuid", $this->getSharedFoldersXpath());
+        $uuids = $xmlConfig->getList($xpath);
 
         if (is_null($uuids)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
+                $xpath
             );
         }
 
@@ -243,12 +247,12 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type"       : "object",
-                "properties" : {
-                    "start"     : { "type" : "integer" },
-                    "limit"     : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
-                    "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
-                    "sortdir"   : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '}
+                "type": "object",
+                "properties": {
+                    "start": { "type": "integer" },
+                    "limit": {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
+                    "sortfield": {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
+                    "sortdir": {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '}
                 }
             }'
         );
@@ -256,18 +260,18 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $username = $context["username"];
 
         // Get configuration object
-        $xPath = sprintf(
+        $xpath = sprintf(
             "%s/shared_folder[users/user/username='%s']/uuid",
-            $this->getSharedFoldersXPath(),
+            $this->getSharedFoldersXpath(),
             $username
         );
 
-        $uuids = $xmlConfig->getList($xPath);
+        $uuids = $xmlConfig->getList($xpath);
 
         if (is_null($uuids)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
+                $xpath
             );
         }
 
@@ -276,20 +280,19 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         foreach ($uuids as $uuid) {
             try {
                 $folder = $this->get(array("uuid" => $uuid), $this->getAdminContext());
-                $fullAccess = boolval(
-                    $xmlConfig->get(
-                        sprintf(
-                            "%s/users/user[username='%s']/full_access",
-                            $this->getSharedFolderXPathByUuid($uuid),
-                            $username
-                        )
-                    )
+
+                $xpath = sprintf(
+                    "%s/users/user[username='%s']/full_access",
+                    $this->getSharedFolderXpathByUuid($uuid),
+                    $username
                 );
 
+                $fullAccess = boolval($xmlConfig->get($xpath));
+
                 $sharedFolders[] = array(
-                    "uuid"      => $folder["uuid"],
-                    "dir"       => $folder["dir"],
-                    "secret"    => $fullAccess ? $folder["secret"] : null,
+                    "uuid" => $folder["uuid"],
+                    "dir" => $folder["dir"],
+                    "secret" => $fullAccess ? $folder["secret"] : null,
                     "ro_secret" => $folder["ro_secret"]
                 );
             } catch (Exception $e) {
@@ -319,19 +322,21 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type"       : "object",
-                "properties" : {
-                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
+                "type": "object",
+                "properties": {
+                    "uuid": {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
                 }
             }'
         );
 
-        $sharedFolder = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
+        $sharedFolder = $xmlConfig->get($this->getSharedFolderXpathByUuid(
+            $params["uuid"]
+        ));
 
         if (is_null($sharedFolder)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
+                $xpath
             );
         }
 
@@ -347,16 +352,8 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         }
 
         // Get full path for presentation
-        $xPath = sprintf("//system/shares/sharedfolder[uuid='%s']", $sharedFolder["sharedfolderref"]);
-        $dir = $xmlConfig->get($xPath);
-
-        $xPath = sprintf("//system/fstab/mntent[uuid='%s']", $dir["mntentref"]);
-        $mountPoint = $xmlConfig->get($xPath);
-
-        $sharedFolder["dir"] = sprintf(
-            "%s/%s",
-            $mountPoint["dir"],
-            $dir["reldirpath"]
+        $sharedFolder["dir"] = $this->getSharedFolderPath(
+            $sharedFolder["sharedfolderref"]
         );
 
         $api = $this->btsyncApiFactory();
@@ -377,25 +374,25 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type"       : "object",
-                "properties" : {
-                    "uuid"             : {' . $GLOBALS["OMV_JSONSCHEMA_UUID_UNDEFINED"] . '},
-                    "sharedfolderref"  : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '},
-                    "use_relay_server" : { "type" : "boolean" },
-                    "use_tracker"      : { "type" : "boolean" },
-                    "use_dht"          : { "type" : "boolean" },
-                    "search_lan"       : { "type" : "boolean" },
-                    "use_sync_trash"   : { "type" : "boolean" },
+                "type": "object",
+                "properties": {
+                    "uuid": {' . $GLOBALS["OMV_JSONSCHEMA_UUID_UNDEFINED"] . '},
+                    "sharedfolderref": {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '},
+                    "use_relay_server": { "type": "boolean" },
+                    "use_tracker": { "type": "boolean" },
+                    "use_dht": { "type": "boolean" },
+                    "search_lan": { "type": "boolean" },
+                    "use_sync_trash": { "type": "boolean" },
 
-                    "existing_secret"  : { "type" : "string", "optional" : true },
+                    "existing_secret": { "type": "string", "optional": true },
 
-                    "users" : {
-                        "type"  : "array",
-                        "items" : {
-                            "type" : "object",
-                            "properties" : {
-                                "username"    : { "type" : "string" },
-                                "full_access" : { "type" : "boolean" }
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "username": { "type": "string" },
+                                "full_access": { "type": "boolean" }
                             }
                         }
                     }
@@ -406,24 +403,26 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $api = $this->btsyncApiFactory();
 
         $sharedFolder = array(
-            "uuid"             => empty($params["uuid"]) ? OMVUtil::uuid() : $params["uuid"],
-            "sharedfolderref"  => $params["sharedfolderref"],
-            "users"            => !empty($params["users"]) ?
+            "uuid" => empty($params["uuid"]) ? OMVUtil::uuid() : $params["uuid"],
+            "sharedfolderref" => $params["sharedfolderref"],
+            "users" => !empty($params["users"]) ?
                 array("user" => $params["users"]) : array(),
         );
 
         $use_relay_server = boolval($params["use_relay_server"]);
-        $use_tracker      = boolval($params["use_tracker"]);
-        $use_dht          = boolval($params["use_dht"]);
-        $search_lan       = boolval($params["search_lan"]);
-        $use_sync_trash   = boolval($params["use_sync_trash"]);
+        $use_tracker = boolval($params["use_tracker"]);
+        $use_dht = boolval($params["use_dht"]);
+        $search_lan = boolval($params["search_lan"]);
+        $use_sync_trash = boolval($params["use_sync_trash"]);
 
         // Get old config
-        $oldConfig = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
+        $oldConfig = $xmlConfig->get($this->getSharedFolderXpathByUuid(
+            $params["uuid"]
+        ));
 
         if (!is_null($oldConfig)) {
             // Use old secret
-            $sharedFolder["secret"]    = $oldConfig["secret"];
+            $sharedFolder["secret"] = $oldConfig["secret"];
             $sharedFolder["ro_secret"] = $oldConfig["ro_secret"];
         } else {
             $folder = null;
@@ -436,17 +435,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
             $sharedFolder["ro_secret"] = $secrets->read_only;
 
             // Get dir path
-            $xPath = sprintf("//system/shares/sharedfolder[uuid='%s']", $sharedFolder["sharedfolderref"]);
-            $dir = $xmlConfig->get($xPath);
-
-            $xPath = sprintf("//system/fstab/mntent[uuid='%s']", $dir["mntentref"]);
-            $mountPoint = $xmlConfig->get($xPath);
-
-            $dir = sprintf(
-                "%s/%s",
-                $mountPoint["dir"],
-                $dir["reldirpath"]
-            );
+            $dir = $this->getSharedFolderPath($sharedFolder["sharedfolderref"]);
 
             if (property_exists($secrets, "read_write")) {
                 $sharedFolder["secret"] = $secrets->read_write;
@@ -458,17 +447,17 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
 
         // Save configuration
         $success = false;
-        $xPath = null;
+        $xpath = null;
 
         if (empty($params["uuid"])) {
             $success = $xmlConfig->set(
-                $xPath = $this->getSharedFoldersXPath(),
+                $xpath = $this->getSharedFoldersXpath(),
                 array("shared_folder" => $sharedFolder),
                 $sharedFolder
             );
         } else {
             $success = $xmlConfig->replace(
-                $xPath = $this->getSharedFolderXPathByUuid($params["uuid"]),
+                $xpath = $this->getSharedFolderXpathByUuid($params["uuid"]),
                 $sharedFolder
             );
         }
@@ -476,7 +465,7 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         if (!$success) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-                $xPath
+                $xpath
             );
         }
 
@@ -507,9 +496,9 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type"       : "object",
-                "properties" : {
-                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
+                "type": "object",
+                "properties": {
+                    "uuid": {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
                 }
             }'
         );
@@ -517,12 +506,14 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $api = $this->btsyncApiFactory();
 
         // Get the shared folder
-        $object = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
+        $object = $xmlConfig->get($this->getSharedFolderXpathByUuid(
+            $params["uuid"]
+        ));
 
         if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 
@@ -532,12 +523,14 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $api->removeFolder($workingSecret);
 
         // Remove it from the config
-        $sharedFolder = $xmlConfig->delete($this->getSharedFolderXPathByUuid($params["uuid"]));
+        $sharedFolder = $xmlConfig->delete($this->getSharedFolderXpathByUuid(
+            $params["uuid"]
+        ));
 
         if (is_null($sharedFolder)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-                $this->getSharedFolderXPathByUuid($params["uuid"])
+                $this->getSharedFolderXpathByUuid($params["uuid"])
             );
         }
     }
@@ -555,19 +548,21 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $this->validateMethodParams(
             $params,
             '{
-                "type" : "object",
-                "properties" : {
-                    "start" : { "type" : "integer" },
-                    "limit" : {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
-                    "sortfield" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
-                    "sortdir" : {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '},
-                    "uuid" : {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
+                "type": "object",
+                "properties": {
+                    "start": { "type": "integer" },
+                    "limit": {' . $GLOBALS["OMV_JSONSCHEMA_COUNTFIELD"] . '},
+                    "sortfield": {' . $GLOBALS["OMV_JSONSCHEMA_SORTFIELD"] . '},
+                    "sortdir": {' . $GLOBALS["OMV_JSONSCHEMA_SORTDIR"] . '},
+                    "uuid": {' . $GLOBALS["OMV_JSONSCHEMA_UUID"] . '}
                 }
             }'
         );
 
         $api = $this->btsyncApiFactory();
-        $sharedFolder = $xmlConfig->get($this->getSharedFolderXPathByUuid($params["uuid"]));
+        $sharedFolder = $xmlConfig->get($this->getSharedFolderXpathByUuid(
+            $params["uuid"]
+        ));
         $workingSecret = $this->getWorkingSecret($sharedFolder);
 
         // Filter result
@@ -587,10 +582,10 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         $prefs = $api->getFolderPreferences($workingSecret);
 
         $sharedFolder["use_relay_server"] = $prefs->use_relay_server;
-        $sharedFolder["use_tracker"]      = $prefs->use_tracker;
-        $sharedFolder["use_dht"]          = $prefs->use_dht;
-        $sharedFolder["search_lan"]       = $prefs->search_lan;
-        $sharedFolder["use_sync_trash"]   = $prefs->use_sync_trash;
+        $sharedFolder["use_tracker"] = $prefs->use_tracker;
+        $sharedFolder["use_dht"] = $prefs->use_dht;
+        $sharedFolder["search_lan"] = $prefs->search_lan;
+        $sharedFolder["use_sync_trash"] = $prefs->use_sync_trash;
 
         return $sharedFolder;
     }
@@ -599,12 +594,12 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
     {
         global $xmlConfig;
 
-        $object = $xmlConfig->get($this->getXPath());
+        $object = $xmlConfig->get($this->getXpath());
 
         if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 
@@ -624,6 +619,33 @@ class OMVRpcServiceBtsync extends OMVRpcServiceAbstract
         }
 
         return $workingSecret;
+    }
+
+    private function getSharedFolderPath($sharedFolderReference)
+    {
+        global $xmlConfig;
+
+        $xpath = sprintf(
+            "//system/shares/sharedfolder[uuid='%s']",
+            $sharedFolderReference
+        );
+
+        $sharedFolder = $xmlConfig->get($xpath);
+
+        $xpath = sprintf(
+            "//system/fstab/mntent[uuid='%s']",
+            $sharedFolder["mntentref"]
+        );
+
+        $mountPoint = $xmlConfig->get($xpath);
+
+        $path = sprintf(
+            "%s/%s",
+            $mountPoint["dir"],
+            $sharedFolder["reldirpath"]
+        );
+
+        return $path;
     }
 }
 

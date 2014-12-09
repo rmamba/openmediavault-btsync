@@ -22,29 +22,27 @@
 // require("js/omv/module/admin/service/btsync/window/SharedFolderUsers.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.SharedFolder", {
-    extend   : "OMV.workspace.window.Tab",
-    requires : [
+    extend: "OMV.workspace.window.Tab",
+    requires: [
         "OMV.module.admin.service.btsync.window.SharedFolderSettings",
         "OMV.module.admin.service.btsync.window.SharedFolderUsers"
     ],
 
-    plugins : [{
-        ptype : "configobject"
+    plugins: [{
+        ptype: "configobject"
     }],
 
-    hideResetButton : true,
+    hideResetButton: true,
 
-    rpcService   : "Btsync",
-    rpcSetMethod : "set",
+    rpcService: "Btsync",
+    rpcSetMethod: "set",
 
-    uuid : null,
+    uuid: null,
 
-    getTabItems : function() {
-        var me = this;
-
+    getTabItems: function() {
         return [
             Ext.create("OMV.module.admin.service.btsync.window.SharedFolderSettings", {
-                uuid : me.uuid
+                uuid: this.uuid
             }),
             Ext.create("OMV.module.admin.service.btsync.window.SharedFolderUsers")
         ];

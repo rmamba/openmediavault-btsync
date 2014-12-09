@@ -23,70 +23,70 @@
 // require("js/omv/module/admin/service/btsync/window/SharedFolderUser.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUsers", {
-    extend   : "OMV.workspace.grid.Panel",
-    requires : [
+    extend: "OMV.workspace.grid.Panel",
+    requires: [
         "OMV.data.Store",
         "OMV.data.Model",
         "OMV.module.admin.service.btsync.window.SharedFolderUser"
     ],
 
-    title  : _("Users"),
-    mode   : "local",
-    height : 200,
+    title: _("Users"),
+    mode: "local",
+    height: 200,
 
-    columns : [{
-        header    : _("User"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "username"
-    },{
-        xtype     : "booleaniconcolumn",
-        header    : _("Full access"),
-        sortable  : true,
-        dataIndex : "full_access",
-        align     : "center",
-        width     : 80,
-        resizable : false,
-        trueIcon  : "switch_on.png",
-        falseIcon : "switch_off.png"
+    columns: [{
+        header: _("User"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "username"
+    }, {
+        xtype: "booleaniconcolumn",
+        header: _("Full access"),
+        sortable: true,
+        dataIndex: "full_access",
+        align: "center",
+        width: 80,
+        resizable: false,
+        trueIcon: "switch_on.png",
+        falseIcon: "switch_off.png"
     }],
 
-    initComponent : function() {
-        var me = this;
-
-        Ext.apply(me, {
-            store : Ext.create("OMV.data.Store", {
-                autoLoad : false,
-                model    : OMV.data.Model.createImplicit({
-                    idProperty : "username",
-                    fields     : [
-                        { name : "username", type : "string" },
-                        { name : "full_access", type: "boolean" }
-                    ]
+    initComponent: function() {
+        Ext.apply(this, {
+            store: Ext.create("OMV.data.Store", {
+                autoLoad: false,
+                model: OMV.data.Model.createImplicit({
+                    idProperty: "username",
+                    fields: [{
+                        name: "username",
+                        type: "string"
+                    }, {
+                        name: "full_access",
+                        type: "boolean"
+                    }]
                 }),
-                proxy : {
-                    type   : "memory",
-                    reader : {
-                        type : "json"
+                proxy: {
+                    type: "memory",
+                    reader: {
+                        type: "json"
                     },
-                    sorters : [{
-                        direction : "ASC",
-                        property  : "username"
+                    sorters: [{
+                        direction: "ASC",
+                        property: "username"
                     }]
                 }
             })
         });
 
-        me.callParent(arguments);
+        this.callParent(arguments);
     },
 
     onAddButton: function() {
-        var me = this;
         Ext.create("OMV.module.admin.service.btsync.window.SharedFolderUser", {
-            title     : _("Add user"),
-            listeners : {
-                scope  : me,
-                submit : function(wnd, values) {
+            title: _("Add user"),
+            listeners: {
+                scope: this,
+                submit: function(wnd, values) {
                     var store = this.getStore();
 
                     // Create and insert new record.
@@ -101,14 +101,13 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUsers", {
     },
 
     onEditButton: function() {
-        var me = this;
-        var record = me.getSelected();
+        var record = this.getSelected();
 
         var wnd = Ext.create("OMV.module.admin.service.btsync.window.SharedFolderUser", {
-            title     : _("Edit user"),
-            listeners : {
-                scope  : me,
-                submit : function(wnd, values) {
+            title: _("Edit user"),
+            listeners: {
+                scope: this,
+                submit: function(wnd, values) {
                     record.beginEdit();
                     record.set(values);
                     record.endEdit();
@@ -121,17 +120,14 @@ Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUsers", {
     },
 
     setValues: function(values) {
-        var me = this;
-
-        return me.callParent([ values.users ]);
+        return this.callParent([values.users]);
     },
 
     getValues: function() {
-        var me = this;
-        var values = me.callParent(arguments);
+        var values = this.callParent(arguments);
 
         return {
-            users : values
+            users: values
         };
     }
 });

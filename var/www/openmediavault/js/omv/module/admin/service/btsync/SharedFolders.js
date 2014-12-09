@@ -24,8 +24,8 @@
 // require("js/omv/module/admin/service/btsync/window/SharedFolder.js")
 
 Ext.define("OMV.module.admin.service.btsync.SharedFolders", {
-    extend   : "OMV.workspace.grid.Panel",
-    requires : [
+    extend: "OMV.workspace.grid.Panel",
+    requires: [
         "OMV.data.Store",
         "OMV.data.Model",
         "OMV.data.proxy.Rpc",
@@ -33,139 +33,135 @@ Ext.define("OMV.module.admin.service.btsync.SharedFolders", {
         "OMV.module.admin.service.btsync.window.SharedFolder"
     ],
 
-    hidePagingToolbar : false,
-    reloadOnActivate  : true,
+    hidePagingToolbar: false,
+    reloadOnActivate: true,
 
-    columns : [{
-        header    : _("UUID"),
-        hidden    : true,
-        dataIndex : "uuid"
-    },{
-        header    : _("Directory"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "dir"
-    },{
-        header    : _("Secret"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "secret"
-    },{
-        header    : _("Read-only secret"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "ro_secret"
+    columns: [{
+        header: _("UUID"),
+        hidden: true,
+        dataIndex: "uuid"
+    }, {
+        header: _("Directory"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "dir"
+    }, {
+        header: _("Secret"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "secret"
+    }, {
+        header: _("Read-only secret"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "ro_secret"
     }],
 
-    store : Ext.create("OMV.data.Store", {
-        autoLoad   : true,
-        remoteSort : false,
-        model      : OMV.data.Model.createImplicit({
-            idProperty : "uuid",
-            fields     : [
-                { name : "uuid" },
-                { name : "dir" },
-                { name : "secret" },
-                { name : "ro_secret" }
-            ]
+    store: Ext.create("OMV.data.Store", {
+        autoLoad: true,
+        remoteSort: false,
+        model: OMV.data.Model.createImplicit({
+            idProperty: "uuid",
+            fields: [{
+                name: "uuid"
+            }, {
+                name: "dir"
+            }, {
+                name: "secret"
+            }, {
+                name: "ro_secret"
+            }]
         }),
-        proxy : {
-            type    : "rpc",
-            rpcData : {
-                "service" : "Btsync",
-                "method"  : "getList"
+        proxy: {
+            type: "rpc",
+            rpcData: {
+                "service": "Btsync",
+                "method": "getList"
             }
         }
     }),
 
-    getTopToolbarItems : function() {
-        var me = this;
-        var items = me.callParent(arguments);
+    getTopToolbarItems: function() {
+        var items = this.callParent(arguments);
 
         Ext.Array.push(items, [{
-            id       : me.getId() + "-details",
-            xtype    : "button",
-            text     : _("Show details"),
-            icon     : "images/book.png",
-            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler  : Ext.Function.bind(me.onDetailsButton, me, [ me ]),
-            scope    : me,
-            disabled : true,
-        	selectionConfig : {
-                minSelections : 1,
-                maxSelections : 1
+            id: this.getId() + "-details",
+            xtype: "button",
+            text: _("Show details"),
+            icon: "images/book.png",
+            iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler: Ext.Function.bind(this.onDetailsButton, this),
+            scope: this,
+            disabled: true,
+            selectionConfig: {
+                minSelections: 1,
+                maxSelections: 1
             }
         }]);
 
         return items;
     },
 
-    onAddButton : function() {
-        var me = this;
-
+    onAddButton: function() {
         Ext.create("OMV.module.admin.service.btsync.window.SharedFolder", {
-            title        : _("Add shared folder"),
-            listeners    : {
-                scope  : me,
-                submit : function() {
-                    me.doReload();
+            title: _("Add shared folder"),
+            listeners: {
+                scope: this,
+                submit: function() {
+                    this.doReload();
                 }
             }
         }).show();
     },
 
-    onEditButton : function() {
-        var me = this;
-        var record = me.getSelected();
+    onEditButton: function() {
+        var record = this.getSelected();
 
         Ext.create("OMV.module.admin.service.btsync.window.SharedFolder", {
-            rpcGetMethod : "get",
-            title        : _("Edit shared folder"),
-            uuid         : record.get("uuid"),
-            listeners    : {
-                scope  : me,
-                submit : function() {
-                    me.doReload();
+            rpcGetMethod: "get",
+            title: _("Edit shared folder"),
+            uuid: record.get("uuid"),
+            listeners: {
+                scope: this,
+                submit: function() {
+                    this.doReload();
                 }
             }
         }).show();
     },
 
-    doDeletion : function(record) {
-        var me = this;
-
+    doDeletion: function(record) {
         OMV.Rpc.request({
-            scope : me,
-            callback : me.onDeletion,
-            rpcData : {
-                service : "Btsync",
-                method : "delete",
-                params : {
-                    uuid : record.get("uuid")
+            scope: this,
+            callback: this.onDeletion,
+            rpcData: {
+                service: "Btsync",
+                method: "delete",
+                params: {
+                    uuid: record.get("uuid")
                 }
             }
         });
     },
 
-    onDetailsButton : function() {
-        var me = this;
-        var record = me.getSelected();
+    onDetailsButton: function() {
+        var record = this.getSelected();
 
         if (!record)
             return;
 
         Ext.create("OMV.module.admin.service.btsync.window.Details", {
-            uuid      : record.get("uuid"),
-            secret    : record.get("secret"),
-            ro_secret : record.get("ro_secret")
+            uuid: record.get("uuid"),
+            secret: record.get("secret"),
+            ro_secret: record.get("ro_secret")
         }).show();
     }
 });
 
 OMV.WorkspaceManager.registerPanel({
-    id        : "sharedfolders",
-    path      : "/service/btsync",
-    text      : _("Shared folders"),
-    position  : 20,
-    className : "OMV.module.admin.service.btsync.SharedFolders"
+    id: "sharedfolders",
+    path: "/service/btsync",
+    text: _("Shared folders"),
+    position: 20,
+    className: "OMV.module.admin.service.btsync.SharedFolders"
 });

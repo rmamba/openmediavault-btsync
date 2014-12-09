@@ -20,25 +20,24 @@
 // require("js/omv/form/field/UserComboBox.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.SharedFolderUser", {
-    extend : "OMV.workspace.window.Form",
+    extend: "OMV.workspace.window.Form",
 
-    mode  : "local",
-    width : 500,
+    mode: "local",
+    width: 500,
 
-    getFormItems : function() {
-        var me = this;
+    getFormItems: function() {
         return [{
-            xtype      : "usercombo",
-            name       : "username",
-            fieldLabel : _("User"),
-            userType   : "normal",
-            editable   : false,
-            allowNone  : true
-        },{
-            xtype      : "checkbox",
-            name       : "full_access",
-            fieldLabel : _("Full access"),
-            checked    : false
+            xtype: "usercombo",
+            name: "username",
+            fieldLabel: _("User"),
+            userType: "normal",
+            editable: false,
+            allowNone: true
+        }, {
+            xtype: "checkbox",
+            name: "full_access",
+            fieldLabel: _("Full access"),
+            checked: false
         }];
     }
 });

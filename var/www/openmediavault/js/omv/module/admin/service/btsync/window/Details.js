@@ -21,37 +21,35 @@
 // require("js/omv/module/admin/service/btsync/window/DetailsPeers.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.Details", {
-    extend   : "OMV.workspace.window.Tab",
-    requires : [
+    extend: "OMV.workspace.window.Tab",
+    requires: [
         "OMV.module.admin.service.btsync.window.DetailsSecret",
         "OMV.module.admin.service.btsync.window.DetailsPeers"
     ],
 
-    title            : _("Details / Secret / QR"),
-    hideOkButton     : true,
-    hideResetButton  : true,
-    hideCancelButton : true,
-    hideCloseButton  : false,
+    title: _("Details / Secret / QR"),
+    hideOkButton: true,
+    hideResetButton: true,
+    hideCancelButton: true,
+    hideCloseButton: false,
 
     getTabItems: function() {
-        var me = this;
-
         var itemArray = [];
 
-        if (me.secret) {
+        if (this.secret) {
             itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.DetailsSecret", {
-                title      : _("Full access"),
-                qrDataText : me.secret
+                title: _("Full access"),
+                qrDataText: this.secret
             }));
         }
 
         itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.DetailsSecret", {
-            title      : _("Read-only"),
-            qrDataText : me.ro_secret
+            title: _("Read-only"),
+            qrDataText: this.ro_secret
         }));
 
         itemArray.push(Ext.create("OMV.module.admin.service.btsync.window.DetailsPeers", {
-            uuid : me.uuid
+            uuid: this.uuid
         }));
 
         return itemArray;

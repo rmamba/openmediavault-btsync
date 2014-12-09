@@ -32,7 +32,7 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements
         return "org.openmediavault.services.btsync";
     }
 
-    private function getXPath()
+    private function getXpath()
     {
         return "//services/btsync";
     }
@@ -52,20 +52,20 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements
     {
         global $xmlConfig;
 
-        $object = $xmlConfig->get($this->getXPath());
+        $object = $xmlConfig->get($this->getXpath());
 
         if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 
         $initd = new OMVSysVInitScript($this->getName());
 
         return array(
-            "name"    => $this->getName(),
-            "title"   => gettext("Btsync"),
+            "name" => $this->getName(),
+            "title" => gettext("Btsync"),
             "enabled" => boolval($object["enable"]),
             "running" => $initd->status() == 0
         );
@@ -76,7 +76,7 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements
      */
     public function applyConfig()
     {
-        $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
+        $cmd = sprintf("export LANG=C; omv-mkconf %s 2>&1", $this->getName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -94,12 +94,12 @@ class OMVModuleBtsync extends OMVModuleServiceAbstract implements
     {
         global $xmlConfig;
 
-        $object = $xmlConfig->get($this->getXPath());
+        $object = $xmlConfig->get($this->getXpath());
 
         if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
+                $this->getXpath()
             );
         }
 

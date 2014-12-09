@@ -22,95 +22,98 @@
 // require("js/omv/workspace/grid/Panel.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.DetailsPeers", {
-    extend   : "OMV.workspace.grid.Panel",
-    requires : [
+    extend: "OMV.workspace.grid.Panel",
+    requires: [
         "OMV.data.Store",
         "OMV.data.Model"
     ],
 
-    title      : _("Peers"),
-    height : 400,
+    title: _("Peers"),
+    height: 400,
 
-    autoReload        : true,
-    hideAddButton     : true,
-    hideEditButton    : true,
-    hideDeleteButton  : true,
-    hidePagingToolbar : false,
+    autoReload: true,
+    hideAddButton: true,
+    hideEditButton: true,
+    hideDeleteButton: true,
+    hidePagingToolbar: false,
 
-    columns : [{
-        header    : _("ID"),
-        hidden    : true,
-        dataIndex : "id"
-    },{
-        header    : _("Name"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "name"
-    },{
-        header    : _("Synced"),
-        sortable  : true,
-        dataIndex : "synced",
-        width     : 120,
-        renderer  : function(value) {
+    columns: [{
+        header: _("ID"),
+        hidden: true,
+        dataIndex: "id"
+    }, {
+        header: _("Name"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "name"
+    }, {
+        header: _("Synced"),
+        sortable: true,
+        dataIndex: "synced",
+        width: 120,
+        renderer: function(value) {
             if (value !== 0) {
                 return Ext.Date.format(new Date(value * 1000), "Y-m-d H:i:s");
             }
 
             return "Not synced";
         }
-    },{
-        header    : _("Download"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "download",
-        renderer  : function(value) {
+    }, {
+        header: _("Download"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "download",
+        renderer: function(value) {
             return this.rateRenderer(value);
         }
-    },{
-        header    : _("Upload"),
-        flex      : 1,
-        sortable  : true,
-        dataIndex : "upload",
-        renderer  : function(value) {
+    }, {
+        header: _("Upload"),
+        flex: 1,
+        sortable: true,
+        dataIndex: "upload",
+        renderer: function(value) {
             return this.rateRenderer(value);
         }
     }],
 
-    initComponent : function() {
-        var me = this;
-
-        Ext.apply(me, {
-            store : Ext.create("OMV.data.Store", {
-                autoLoad   : true,
-                remoteSort : false,
-                model      : OMV.data.Model.createImplicit({
-                    idProperty : "uuid",
-                    fields     : [
-                        { name : "id" },
-                        { name : "connection" },
-                        { name : "name" },
-                        { name : "synced" },
-                        { name : "download" },
-                        { name : "upload" }
-                    ]
+    initComponent: function() {
+        Ext.apply(this, {
+            store: Ext.create("OMV.data.Store", {
+                autoLoad: true,
+                remoteSort: false,
+                model: OMV.data.Model.createImplicit({
+                    idProperty: "uuid",
+                    fields: [{
+                        name: "id"
+                    }, {
+                        name: "connection"
+                    }, {
+                        name: "name"
+                    }, {
+                        name: "synced"
+                    }, {
+                        name: "download"
+                    }, {
+                        name: "upload"
+                    }]
                 }),
-                proxy : {
-                    type    : "rpc",
-                    rpcData : {
-                        "service" : "Btsync",
-                        "method"  : "getSharedFolderPeers"
+                proxy: {
+                    type: "rpc",
+                    rpcData: {
+                        "service": "Btsync",
+                        "method": "getSharedFolderPeers"
                     },
-                    extraParams : {
-                        uuid : me.uuid
+                    extraParams: {
+                        uuid: this.uuid
                     }
                 }
             })
         });
 
-        me.callParent(arguments);
+        this.callParent(arguments);
     },
 
-    rateRenderer : function(value) {
+    rateRenderer: function(value) {
         var suffixes = ["B", "KiB", "MiB", "GiB"];
         var suffix = suffixes[0];
 

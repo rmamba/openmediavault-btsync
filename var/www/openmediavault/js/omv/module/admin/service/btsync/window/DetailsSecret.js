@@ -20,28 +20,27 @@
 // require("js/omv/module/admin/service/btsync/libs/jsqr-0.2-min.js")
 
 Ext.define("OMV.module.admin.service.btsync.window.DetailsSecret", {
-    extend : "OMV.form.Panel",
+    extend: "OMV.form.Panel",
 
-    bodyPadding : "5 5 0",
+    bodyPadding: "5 5 0",
 
-    initComponent : function() {
-        var me = this;
-        var qrImage = me.generateQrCodeImage("btsync://" + me.qrDataText);
+    initComponent: function() {
+        var qrImage = this.generateQrCodeImage("btsync://" + this.qrDataText);
 
-        Ext.apply(me, {
+        Ext.apply(this, {
             items: [{
-                xtype : "textfield",
-                value : me.qrDataText
-            },{
-                html   : "<img height='376' width='376' style='width:100%;' src='" + qrImage + "' />",
-                margin : "0 0 10 0"
+                xtype: "textfield",
+                value: this.qrDataText
+            }, {
+                html: "<img height='376' width='376' style='width:100%;' src='" + qrImage + "' />",
+                margin: "0 0 10 0"
             }]
         });
 
-        me.callParent(arguments);
+        this.callParent(arguments);
     },
 
-    generateQrCodeImage : function(data) {
+    generateQrCodeImage: function(data) {
         var qr = new JSQR();
         var code = new qr.Code();
 
