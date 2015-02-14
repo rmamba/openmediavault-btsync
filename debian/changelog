@@ -1,25 +1,26 @@
 openmediavault-btsync (1.0.12) stable; urgency=low
 
-  * Solve "Code: 105. Message: Destination folder is not empty" by forcing creation of shared folder
-  * Update locales
+  * Solve "Code: 105. Message: Destination folder is not empty" by forcing
+    creation of shared folder.
+  * Update locales.
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 09 Dec 2014 07:44:44 -0600
 
 openmediavault-btsync (1.0.11) stable; urgency=low
 
-  * Use correct applyFilter params 
+  * Use correct applyFilter params
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 29 Oct 2014 17:19:47 +0100
 
 openmediavault-btsync (1.0.10) stable; urgency=low
 
-  * Use correct unit in peers detail window 
+  * Use correct unit in peers detail window
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 08 Sep 2014 15:10:51 +0200
 
 openmediavault-btsync (1.0.9) stable; urgency=low
 
-  * Use correct variable (closes #3) 
+  * Use correct variable (closes #3)
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 31 Jul 2014 12:05:47 +0200
 

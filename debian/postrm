@@ -18,7 +18,7 @@ case "$1" in
         omv_config_delete ${SERVICE_XPATH}
 
         if [ -e "${OMV_BTSYNC_STORAGE_PATH}" ]; then
-            /bin/rm -rf "${OMV_BTSYNC_STORAGE_PATH}"
+            rm -rf "${OMV_BTSYNC_STORAGE_PATH}"
         fi
     ;;
 
@@ -28,11 +28,11 @@ case "$1" in
         fi
 
         if [ -e "${OMV_BTSYNC_CONF}" ]; then
-            /bin/rm "${OMV_BTSYNC_CONF}"
+            rm "${OMV_BTSYNC_CONF}"
         fi
 
         if [ -e "${OMV_BTSYNC_DEFAULT_CONF}" ]; then
-            /bin/rm "${OMV_BTSYNC_DEFAULT_CONF}"
+            rm "${OMV_BTSYNC_DEFAULT_CONF}"
         fi
     ;;
 
