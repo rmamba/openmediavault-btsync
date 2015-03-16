@@ -8,7 +8,7 @@ XB-Plugin-Section: backup
 
 Package: openmediavault-btsync
 Architecture: all
-Depends: openmediavault (>= 1.1), btsync (< 2), php5-curl, ${misc:Depends}
+Depends: openmediavault (>= 1.1), btsync (<< 2), php5-curl, ${misc:Depends}
 Description: BitTorrent Sync plugin for OpenMediaVault.
  Manage BitTorrent Sync directly from the web interface provided by
  OpenMediaVault.
