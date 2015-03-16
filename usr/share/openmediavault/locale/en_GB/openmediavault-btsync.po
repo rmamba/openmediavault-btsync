@@ -3,56 +3,55 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Csatay Krisztián <csatay@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2014-12-29 13:23+0000\n"
-"Last-Translator: Csatay Krisztián <csatay@gmail.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/openmediavault-btsync/language/hu/)\n"
+"PO-Revision-Date: 2013-12-12 16:45+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/openmediavault-btsync/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr "0 - nincs korlát"
+msgstr ""
 
 msgid "0 - randomize port"
-msgstr "0 - véletlenszerű port"
+msgstr ""
 
 msgid "Add shared folder"
-msgstr "Megosztott mappa hozzáadása"
+msgstr ""
 
 msgid "Add user"
-msgstr "Felhasználó hozzáadása"
+msgstr ""
 
 msgid "BitTorrent Sync"
-msgstr "BitTorrent Sync"
+msgstr ""
 
 msgid "Btsync"
-msgstr "Btsync"
+msgstr ""
 
 msgid "Details / Secret / QR"
-msgstr "Részletek / Kód / QR"
+msgstr ""
 
 msgid "Device name"
-msgstr "Eszköz neve"
+msgstr ""
 
 msgid "Directory"
-msgstr "Könyvtár"
+msgstr ""
 
 msgid "Download"
-msgstr "Letöltés"
+msgstr ""
 
 msgid "Download limit"
-msgstr "Letöltési korlát"
+msgstr ""
 
 msgid "Edit shared folder"
-msgstr "A megosztott mappa szerkesztése"
+msgstr ""
 
 msgid "Edit user"
 msgstr ""

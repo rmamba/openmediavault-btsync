@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-btsync\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-05 09:47-0500\n"
-"PO-Revision-Date: 2013-12-12 16:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-02-21 08:53+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault-btsync/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,148 +19,148 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "0 - no limit"
-msgstr ""
+msgstr "0 - sen límites"
 
 msgid "0 - randomize port"
-msgstr ""
+msgstr "0 - porto ao chou"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "Engadir un cartafol compartido"
 
 msgid "Add user"
-msgstr ""
+msgstr "Engadir un usuario"
 
 msgid "BitTorrent Sync"
-msgstr ""
+msgstr "BitTorrent Sync"
 
 msgid "Btsync"
-msgstr ""
+msgstr "Btsync"
 
 msgid "Details / Secret / QR"
-msgstr ""
+msgstr "Detalles / Secreto / QR"
 
 msgid "Device name"
-msgstr ""
+msgstr "Nome do dispositivo"
 
 msgid "Directory"
-msgstr ""
+msgstr "Directorio"
 
 msgid "Download"
-msgstr ""
+msgstr "Descarga"
 
 msgid "Download limit"
-msgstr ""
+msgstr "Límite de descarga"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "Editar o cartafol compartido"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Editar o usuario"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Existing secret"
-msgstr ""
+msgstr "Secreto existente"
 
 msgid ""
 "Fill in a existing secret in this field if you want to sync an existing "
 "shared folder with this server."
-msgstr ""
+msgstr "Escriba un secreto neste campo, se quere sincronizar un cartafol compartido, xa existente, con este servidor ."
 
 msgid "Full access"
-msgstr ""
+msgstr "Acceso total"
 
 msgid "General"
-msgstr ""
+msgstr "Xeral"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Listening port"
-msgstr ""
+msgstr "Porto de escoita"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Password"
-msgstr ""
+msgstr "Contrasinal"
 
 msgid "Peers"
-msgstr ""
+msgstr "Pares"
 
 msgid "Port"
-msgstr ""
+msgstr "Porto"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Só lectura"
 
 msgid "Read-only secret"
-msgstr ""
+msgstr "Secreto de só lectura"
 
 msgid "Search LAN"
-msgstr ""
+msgstr "Buscar na LAN"
 
 msgid "Secret"
-msgstr ""
+msgstr "Secreto"
 
 msgid "Services"
-msgstr ""
+msgstr "Servizos"
 
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartafol compartido"
 
 msgid "Shared folders"
-msgstr ""
+msgstr "Cartafoles compartidos"
 
 msgid "Show details"
-msgstr ""
+msgstr "Amosar os detalles"
 
 msgid "Synced"
-msgstr ""
+msgstr "Sincronizado"
 
 msgid ""
 "The location needs to have read/write permissions for the user/group btsync"
-msgstr ""
+msgstr "A localización debe ter permisos de lectura/escritura para o usuario/grupo btsync"
 
 msgid "This only affects the UI, the API is always activated."
-msgstr ""
+msgstr "Isto só afecta á interface de usuario, a API está sempre activada."
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Upload"
-msgstr ""
+msgstr "Envío"
 
 msgid "Upload limit"
-msgstr ""
+msgstr "Límite de envío"
 
 msgid "Use DHT"
-msgstr ""
+msgstr "Usar DHT"
 
 msgid "Use TCP"
-msgstr ""
+msgstr "Usar TCP"
 
 msgid "Use UPnP"
-msgstr ""
+msgstr "Usar UPnP"
 
 msgid "Use relay server"
-msgstr ""
+msgstr "Usar servidor ponte"
 
 msgid "Use sync trash"
-msgstr ""
+msgstr "Usar a sincronización do lixo"
 
 msgid "Use tracker"
-msgstr ""
+msgstr "Usar localizadores"
 
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuario"
 
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"

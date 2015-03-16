@@ -1,6 +1,7 @@
 openmediavault-btsync (1.0.13) UNRELEASED; urgency=low
 
   * Change dependency to btsync 1.4
+  * Update locales
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 16 Mar 2015 06:41:35 -0500
 
